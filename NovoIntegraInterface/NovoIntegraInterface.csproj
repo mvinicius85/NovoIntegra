@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autenticacao\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autenticacao\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documento\frmCadastroParametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\frmCadastroParametros.Designer.cs">
+      <DependentUpon>frmCadastroParametros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Documento\frmConsultaParametros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log\frmConsultaLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log\frmConsultaLog.Designer.cs">
+      <DependentUpon>frmConsultaLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +93,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Suporte\Support.cs" />
+    <EmbeddedResource Include="Documento\frmCadastroParametros.resx">
+      <DependentUpon>frmCadastroParametros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documento\frmConsultaParametros.resx">
       <DependentUpon>frmConsultaParametros.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,9 +143,6 @@
       <Name>NovoIntegra</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Autenticacao\" />
-    <Folder Include="Log\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

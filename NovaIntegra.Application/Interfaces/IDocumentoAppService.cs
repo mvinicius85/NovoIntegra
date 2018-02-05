@@ -16,5 +16,7 @@ namespace NovaIntegra.Application.Interfaces
         bool InsereDocumento(string pathfile, string path, string file);
 
         string RetornaDiretorio(string param);
+        List<AA_ParametrosViewModel> ListarParametros(AA_ParametrosViewModel filtro);
+        AA_ParametrosViewModel CarregarParametro(int cod_parametro);
     }
 }

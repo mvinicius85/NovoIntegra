@@ -146,6 +146,15 @@ namespace NovaIntegra.Application.AppForm
             }
             throw new NotImplementedException();
         }
-       
+
+        public List<AA_ParametrosViewModel> ListarParametros(AA_ParametrosViewModel filtro)
+        {
+            return Mapper.Map<List<AA_ParametrosViewModel>>(_parametrosserivce.RetornaParametros(Mapper.Map<AA_Parametros>(filtro)));
+        }
+
+        public AA_ParametrosViewModel CarregarParametro(int cod_parametro)
+        {
+            return Mapper.Map<AA_ParametrosViewModel>(_parametrosserivce.CarregaParametro(cod_parametro));
+        }
     }
 }

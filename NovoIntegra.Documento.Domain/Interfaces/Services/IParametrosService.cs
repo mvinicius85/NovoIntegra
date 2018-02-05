@@ -1,4 +1,5 @@
-﻿using NovoIntegra.Documento.Domain.Interfaces.Repository;
+﻿using NovoIntegra.Documento.Domain.Entities.Documento;
+using NovoIntegra.Documento.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
     public interface IParametrosService
     {
         string RetornaPath(string param);
+        List<AA_Parametros> RetornaParametros(AA_Parametros filtro);
+        AA_Parametros CarregaParametro(int cod_parametro);
     }
 }

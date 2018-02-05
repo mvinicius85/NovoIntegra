@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NovaIntegra.Application.Interfaces;
+using NovaIntegra.Application.ViewModel;
+using NovoIntegraInterface.Suporte;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,48 @@ namespace NovoIntegraInterface.Documento
 {
     public partial class frmConsultaParametros : Form
     {
-        public frmConsultaParametros()
+        private readonly IDocumentoAppService _docappservice;
+        public frmConsultaParametros(IDocumentoAppService docappservice)
         {
             InitializeComponent();
+            _docappservice = docappservice;
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            var filtro = new AA_ParametrosViewModel(txtNome.Text, txtDescricao.Text);
+            var param = _docappservice.ListarParametros(filtro);
+            dgvFiltro.DataSource = param.OrderBy(x => x.Cod_Parametro).ToList();
+
+            Support.DataGridView_ConfigGrid(dgvFiltro, false);
+            Support.DataGridView_ConfigCol(dgvFiltro, "NomeParametro", "Nome", 1, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+            Support.DataGridView_ConfigCol(dgvFiltro, "Descricao", "Descricao", 2, "", 0, DataGridViewAutoSizeColumnMode.Fill);
+            Support.DataGridView_ConfigCol(dgvFiltro, "Valor", "Valor", 3, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+        }
+
+        private void dgvFiltro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                var frmcadastro = Program.Container.GetInstance<frmCadastroParametros>();
+                if (dgvFiltro.SelectedRows.Count > 0)
+                {
+                    Cursor = Cursors.WaitCursor;
+                    frmcadastro.MdiParent = this.MdiParent;
+                    var conta = (AA_ParametrosViewModel)dgvFiltro.SelectedRows[0].DataBoundItem;
+                    frmcadastro.cod_parametro = conta.Cod_Parametro;
+                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm();
+                    frmcadastro.Show();
+                    Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.GetBaseException().Message);
+            }
         }
     }
+  
 }

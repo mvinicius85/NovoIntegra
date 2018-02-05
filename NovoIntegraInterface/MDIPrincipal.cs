@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NovoIntegraInterface.Documento;
+using NovoIntegraInterface.Suporte;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,19 @@ namespace NovoIntegraInterface
         public MDIPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void consultarParametrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Support.BuscaForm<frmConsultaParametros>();  //  Program.Container.GetInstance<frmCadastroContaContabil>();
+            if (!form.Created)
+            {
+                form.MdiParent = this;
+                form.Show();
+                return;
+            }
+            form.BringToFront();
+            return;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace NovoIntegra.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<DCCATEGORY, DCCategoryViewModel>();
+                CreateMap<AA_Parametros, AA_ParametrosViewModel>();
         }
     }
 }

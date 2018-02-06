@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AA_ParametrosViewModel.cs" />
     <Compile Include="ViewModel\DCCategoryViewModel.cs" />
+    <Compile Include="ViewModel\gridCategoriasViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

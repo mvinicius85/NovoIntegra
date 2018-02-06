@@ -1,4 +1,5 @@
-﻿using NovoIntegra.Documento.Domain.Entities.Documento;
+﻿using NovoIntegra.Documento.Domain.DTO;
+using NovoIntegra.Documento.Domain.Entities.Documento;
 using NovoIntegra.Documento.Domain.Interfaces.Repository;
 using NovoIntegra.Documento.Domain.Interfaces.Services;
 using System;
@@ -19,6 +20,11 @@ namespace NovoIntegra.Documento.Domain.Services
         public List<DCCATEGORY> BuscaTodos()
         {
             return _dccategoryrepository.ObterTodos().ToList();
+        }
+
+        public List<DTOgridAtrib> ListarCategorias(DCCATEGORY filtro)
+        {
+            return _dccategoryrepository.ListarCategorias(filtro);
         }
     }
 }

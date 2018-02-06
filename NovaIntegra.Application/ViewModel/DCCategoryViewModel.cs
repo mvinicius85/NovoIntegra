@@ -8,6 +8,11 @@ namespace NovaIntegra.Application.ViewModel
 {
     public class DCCategoryViewModel
     {
+        public DCCategoryViewModel(string _idcateg, string _nmcateg)
+        {
+            IDCATEGORY = _idcateg;
+            NMCATEGORY = _nmcateg;
+        }
         public decimal CDCATEGORY { get; set; }
         public Nullable<decimal> CDCATEGORYOWNER { get; set; }
         public string NMCATEGORY { get; set; }

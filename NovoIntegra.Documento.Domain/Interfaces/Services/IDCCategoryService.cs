@@ -1,4 +1,5 @@
 ﻿using NovoIntegra.Core.Domain.Interfaces.Repository;
+using NovoIntegra.Documento.Domain.DTO;
 using NovoIntegra.Documento.Domain.Entities.Documento;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
     public interface IDCCategoryService
     {
         List<DCCATEGORY> BuscaTodos();
+        List<DTOgridAtrib> ListarCategorias(DCCATEGORY filtro);
     }
 }

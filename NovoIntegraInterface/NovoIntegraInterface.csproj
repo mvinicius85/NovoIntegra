@@ -61,11 +61,23 @@
     <Compile Include="Autenticacao\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documento\frmCadastroCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\frmCadastroCategoria.Designer.cs">
+      <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Documento\frmCadastroParametros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documento\frmCadastroParametros.Designer.cs">
       <DependentUpon>frmCadastroParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documento\frmConsultaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\frmConsultaCategoria.Designer.cs">
+      <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Documento\frmConsultaParametros.cs">
       <SubType>Form</SubType>
@@ -94,8 +106,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Suporte\Support.cs" />
+    <EmbeddedResource Include="Documento\frmCadastroCategoria.resx">
+      <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documento\frmCadastroParametros.resx">
       <DependentUpon>frmCadastroParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\frmConsultaCategoria.resx">
+      <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\frmConsultaParametros.resx">
       <DependentUpon>frmConsultaParametros.cs</DependentUpon>
@@ -114,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -143,6 +162,11 @@
       <Name>NovoIntegra</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Document New_Blue_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus_Blue_24x24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

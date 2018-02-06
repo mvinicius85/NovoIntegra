@@ -156,5 +156,10 @@ namespace NovaIntegra.Application.AppForm
         {
             return Mapper.Map<AA_ParametrosViewModel>(_parametrosserivce.CarregaParametro(cod_parametro));
         }
+
+        public List<gridCategoriasViewModel> ListarCategorias(DCCategoryViewModel filtro)
+        {
+            return Mapper.Map<List<gridCategoriasViewModel>>(_dccategoryservice.ListarCategorias(Mapper.Map<DCCATEGORY>(filtro)));
+        }
     }
 }

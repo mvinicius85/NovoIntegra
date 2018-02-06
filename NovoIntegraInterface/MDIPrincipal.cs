@@ -31,5 +31,18 @@ namespace NovoIntegraInterface
             form.BringToFront();
             return;
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Support.BuscaForm<frmConsultaCategoria>();  //  Program.Container.GetInstance<frmCadastroContaContabil>();
+            if (!form.Created)
+            {
+                form.MdiParent = this;
+                form.Show();
+                return;
+            }
+            form.BringToFront();
+            return;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace NovoIntegra.Documento.Domain.Entities.Documento
 {
@@ -16,6 +17,7 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
         public Nullable<decimal> FGENABLEVALID { get; set; }
         public string DSCATEGORY { get; set; }
         public Nullable<decimal> QTCONFDOCLOANDEAD { get; set; }
+
         public Nullable<decimal> CDCOMPLIENCERET { get; set; }
         public Nullable<decimal> QTDOCDEVOLDEAD { get; set; }
         public Nullable<decimal> FGAUTOADDRESS { get; set; }
@@ -100,5 +102,33 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
         public Nullable<decimal> FGELABINDEXTYPE { get; set; }
         public Nullable<decimal> FGEXECAPPLIC { get; set; }
         public Nullable<decimal> QTAPPLICDEADLINE { get; set; }
+
+
+        public string MontaSWhere()
+        {
+            StringBuilder swhere = new StringBuilder();
+            if (!String.IsNullOrEmpty(IDCATEGORY))
+            {
+                IDCATEGORY = "%" + IDCATEGORY + "%";
+                if (swhere.Length > 0)
+                {
+                    swhere.Append(" and ");
+                }
+                swhere.Append(" cat.IDCATEGORY like @IDCATEGORY ");
+            }
+            if (!String.IsNullOrEmpty(NMCATEGORY))
+            {
+                if (swhere.Length > 0)
+                {
+                    swhere.Append(" and ");
+                }
+                swhere.Append(" cat.NMCATEGORY like @NMCATEGORY ");
+            }
+            if (swhere.Length > 0)
+            {
+                return "where " + swhere.ToString();
+            }
+            return swhere.ToString();
+        }
     }
 }

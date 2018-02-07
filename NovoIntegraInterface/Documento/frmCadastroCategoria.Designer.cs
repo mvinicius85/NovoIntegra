@@ -33,8 +33,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lblToolBar = new System.Windows.Forms.ToolStripLabel();
             this.dgvAtributos = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gpbAtributo = new System.Windows.Forms.GroupBox();
+            this.gpbCategoria = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cboCodCategoria = new System.Windows.Forms.ComboBox();
@@ -52,8 +52,8 @@
             this.btnVoltar = new System.Windows.Forms.ToolStripButton();
             this.tlsVendasPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtributos)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gpbAtributo.SuspendLayout();
+            this.gpbCategoria.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlsVendasPesquisa
@@ -88,39 +88,40 @@
             this.dgvAtributos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtributos.Location = new System.Drawing.Point(5, 160);
             this.dgvAtributos.Name = "dgvAtributos";
+            this.dgvAtributos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAtributos.Size = new System.Drawing.Size(649, 150);
             this.dgvAtributos.TabIndex = 8;
             // 
-            // groupBox1
+            // gpbAtributo
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.chkTitulo);
-            this.groupBox1.Controls.Add(this.txtAtribImagem);
-            this.groupBox1.Controls.Add(this.cboTipoAtributo);
-            this.groupBox1.Controls.Add(this.cboAtribSeSuite);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(5, 68);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(649, 86);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Atributo";
+            this.gpbAtributo.Controls.Add(this.button2);
+            this.gpbAtributo.Controls.Add(this.button1);
+            this.gpbAtributo.Controls.Add(this.chkTitulo);
+            this.gpbAtributo.Controls.Add(this.txtAtribImagem);
+            this.gpbAtributo.Controls.Add(this.cboTipoAtributo);
+            this.gpbAtributo.Controls.Add(this.cboAtribSeSuite);
+            this.gpbAtributo.Controls.Add(this.label5);
+            this.gpbAtributo.Controls.Add(this.label4);
+            this.gpbAtributo.Controls.Add(this.label3);
+            this.gpbAtributo.Location = new System.Drawing.Point(5, 68);
+            this.gpbAtributo.Name = "gpbAtributo";
+            this.gpbAtributo.Size = new System.Drawing.Size(649, 86);
+            this.gpbAtributo.TabIndex = 9;
+            this.gpbAtributo.TabStop = false;
+            this.gpbAtributo.Text = "Atributo";
             // 
-            // groupBox2
+            // gpbCategoria
             // 
-            this.groupBox2.Controls.Add(this.txtDescCategoria);
-            this.groupBox2.Controls.Add(this.cboCodCategoria);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(5, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(649, 50);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Categoria";
+            this.gpbCategoria.Controls.Add(this.txtDescCategoria);
+            this.gpbCategoria.Controls.Add(this.cboCodCategoria);
+            this.gpbCategoria.Controls.Add(this.label2);
+            this.gpbCategoria.Controls.Add(this.label1);
+            this.gpbCategoria.Location = new System.Drawing.Point(5, 12);
+            this.gpbCategoria.Name = "gpbCategoria";
+            this.gpbCategoria.Size = new System.Drawing.Size(649, 50);
+            this.gpbCategoria.TabIndex = 10;
+            this.gpbCategoria.TabStop = false;
+            this.gpbCategoria.Text = "Categoria";
             // 
             // label1
             // 
@@ -134,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(242, 20);
+            this.label2.Location = new System.Drawing.Point(272, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
@@ -145,14 +146,14 @@
             this.cboCodCategoria.FormattingEnabled = true;
             this.cboCodCategoria.Location = new System.Drawing.Point(56, 17);
             this.cboCodCategoria.Name = "cboCodCategoria";
-            this.cboCodCategoria.Size = new System.Drawing.Size(180, 21);
+            this.cboCodCategoria.Size = new System.Drawing.Size(210, 21);
             this.cboCodCategoria.TabIndex = 2;
             // 
             // txtDescCategoria
             // 
-            this.txtDescCategoria.Location = new System.Drawing.Point(306, 17);
+            this.txtDescCategoria.Location = new System.Drawing.Point(336, 17);
             this.txtDescCategoria.Name = "txtDescCategoria";
-            this.txtDescCategoria.Size = new System.Drawing.Size(335, 20);
+            this.txtDescCategoria.Size = new System.Drawing.Size(307, 20);
             this.txtDescCategoria.TabIndex = 3;
             // 
             // label3
@@ -261,8 +262,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 344);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbCategoria);
+            this.Controls.Add(this.gpbAtributo);
             this.Controls.Add(this.dgvAtributos);
             this.Controls.Add(this.tlsVendasPesquisa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -272,10 +273,10 @@
             this.tlsVendasPesquisa.ResumeLayout(false);
             this.tlsVendasPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtributos)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gpbAtributo.ResumeLayout(false);
+            this.gpbAtributo.PerformLayout();
+            this.gpbCategoria.ResumeLayout(false);
+            this.gpbCategoria.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +289,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel lblToolBar;
         private System.Windows.Forms.DataGridView dgvAtributos;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpbAtributo;
         private System.Windows.Forms.CheckBox chkTitulo;
         private System.Windows.Forms.TextBox txtAtribImagem;
         private System.Windows.Forms.ComboBox cboTipoAtributo;
@@ -296,7 +297,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gpbCategoria;
         private System.Windows.Forms.TextBox txtDescCategoria;
         private System.Windows.Forms.ComboBox cboCodCategoria;
         private System.Windows.Forms.Label label2;

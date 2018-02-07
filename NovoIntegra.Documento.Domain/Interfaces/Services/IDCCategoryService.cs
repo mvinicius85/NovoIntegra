@@ -13,5 +13,6 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
     {
         List<DCCATEGORY> BuscaTodos();
         List<DTOgridAtrib> ListarCategorias(DCCATEGORY filtro);
+        DCCATEGORY BuscarCategoria(string cod_categoria);
     }
 }

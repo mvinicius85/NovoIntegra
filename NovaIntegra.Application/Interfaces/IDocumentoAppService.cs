@@ -19,5 +19,9 @@ namespace NovaIntegra.Application.Interfaces
         List<AA_ParametrosViewModel> ListarParametros(AA_ParametrosViewModel filtro);
         AA_ParametrosViewModel CarregarParametro(int cod_parametro);
         List<gridCategoriasViewModel> ListarCategorias(DCCategoryViewModel filtro);
+        DCCategoryViewModel BuscaCategoria(string cod_categoria);
+        List<DCCategoryViewModel> ListarCategorias();
+        List<AA_VinculoViewModel> ListarVinculo(string cod_categoria);
+
     }
 }

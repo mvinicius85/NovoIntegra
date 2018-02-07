@@ -26,6 +26,7 @@ namespace NovoIntegra.Documento.Infra.Data.Contexto
         public DbSet<AA_TipoCampo> AA_TipoCampo { get; set; }
         public DbSet<AA_Vinculo> AA_Vinculo { get; set; }
         public DbSet<ADINTERFACE> ADINTERFACEs { get; set; }
+        public DbSet<ADATTRIBUTE> ADATTRIBUTEs { get; set; }
         public DbSet<DCCATEGORY> DCCATEGORies { get; set; }
         public DbSet<DCDOCREVISION> DCDOCREVISIONs { get; set; }
         public DbSet<DCDOCUMENT> DCDOCUMENTs { get; set; }
@@ -43,6 +44,7 @@ namespace NovoIntegra.Documento.Infra.Data.Contexto
             modelBuilder.Configurations.Add(new AA_ParametrosMap());
             modelBuilder.Configurations.Add(new AA_TipoCampoMap());
             modelBuilder.Configurations.Add(new AA_VinculoMap());
+            modelBuilder.Configurations.Add(new ADATTRIBUTEMap());
             modelBuilder.Configurations.Add(new ADINTERFACEMap());
             modelBuilder.Configurations.Add(new DCCATEGORYMap());
             modelBuilder.Configurations.Add(new DCDOCREVISIONMap());

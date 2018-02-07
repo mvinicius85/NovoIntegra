@@ -8,6 +8,10 @@ namespace NovaIntegra.Application.ViewModel
 {
     public class DCCategoryViewModel
     {
+        public DCCategoryViewModel()
+        {
+
+        }
         public DCCategoryViewModel(string _idcateg, string _nmcateg)
         {
             IDCATEGORY = _idcateg;
@@ -108,5 +112,7 @@ namespace NovaIntegra.Application.ViewModel
         public Nullable<decimal> FGELABINDEXTYPE { get; set; }
         public Nullable<decimal> FGEXECAPPLIC { get; set; }
         public Nullable<decimal> QTAPPLICDEADLINE { get; set; }
+
+        public string  codenome { get { return this.IDCATEGORY + " - " + this.NMCATEGORY; } }
     }
 }

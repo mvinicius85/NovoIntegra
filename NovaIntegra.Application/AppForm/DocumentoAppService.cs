@@ -161,5 +161,20 @@ namespace NovaIntegra.Application.AppForm
         {
             return Mapper.Map<List<gridCategoriasViewModel>>(_dccategoryservice.ListarCategorias(Mapper.Map<DCCATEGORY>(filtro)));
         }
+
+        public DCCategoryViewModel BuscaCategoria(string cod_categoria)
+        {
+            return Mapper.Map<DCCategoryViewModel>(_dccategoryservice.BuscarCategoria(cod_categoria));
+        }
+
+        public List<AA_VinculoViewModel> ListarVinculo(string cod_categoria)
+        {
+            return Mapper.Map<List<AA_VinculoViewModel>>(_vinculoservice.RetornaAtributos(cod_categoria));
+        }
+
+        public List<DCCategoryViewModel> ListarCategorias()
+        {
+            return Mapper.Map<List<DCCategoryViewModel>>(_dccategoryservice.BuscaTodos());
+        }
     }
 }

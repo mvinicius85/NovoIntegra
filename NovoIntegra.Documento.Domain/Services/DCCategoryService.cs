@@ -17,6 +17,12 @@ namespace NovoIntegra.Documento.Domain.Services
         {
             _dccategoryrepository = dccategoryrepository;
         }
+
+        public DCCATEGORY BuscarCategoria(string cod_categoria)
+        {
+            return _dccategoryrepository.Buscar(x => x.IDCATEGORY == cod_categoria).FirstOrDefault();
+        }
+
         public List<DCCATEGORY> BuscaTodos()
         {
             return _dccategoryrepository.ObterTodos().ToList();

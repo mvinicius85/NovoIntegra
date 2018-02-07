@@ -111,6 +111,7 @@
     <Compile Include="Entities\Documento\AA_Parametros.cs" />
     <Compile Include="Entities\Documento\AA_TipoCampo.cs" />
     <Compile Include="Entities\Documento\AA_Vinculo.cs" />
+    <Compile Include="Entities\Documento\ADATTRIBUTE.cs" />
     <Compile Include="Entities\Documento\ADINTERFACE.cs" />
     <Compile Include="Entities\Documento\DCCATEGORY.cs" />
     <Compile Include="Entities\Documento\DCDOCREVISION.cs" />

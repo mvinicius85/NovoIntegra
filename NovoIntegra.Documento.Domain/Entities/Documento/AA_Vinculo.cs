@@ -7,9 +7,11 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
     {
         public int Cod_Vinculo { get; set; }
         public string IDCategory { get; set; }
-        public int CDAttribuite_SE { get; set; }
+        public Nullable<decimal> CDAttribute_SE { get; set; }
         public string NmCampoImagem { get; set; }
         public bool Ind_Titulo { get; set; }
         public int Cod_TipoCampo { get; set; }
+        public virtual AA_TipoCampo AA_TipoCampo { get; set; }
+        public virtual ADATTRIBUTE ADATTRIBUTE { get; set; }
     }
 }

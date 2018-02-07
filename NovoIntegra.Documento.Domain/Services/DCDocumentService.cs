@@ -105,23 +105,23 @@ namespace NovoIntegra.Documento.Domain.Services
                 switch (tpatrib.ToUpper())
                 {
                     case "TEXTO":
-                        var dcdocatrib1 = new DCDOCUMENTATTRIB(tpatrib, cddocument, atrib.CDAttribuite_SE, linha[atrib.NmCampoImagem].ToString(), 0, DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
+                        var dcdocatrib1 = new DCDOCUMENTATTRIB(tpatrib, cddocument, (decimal)atrib.CDAttribute_SE, linha[atrib.NmCampoImagem].ToString(), 0, DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
                         _dcdocattribrepository.Adicionar(dcdocatrib1);
                         break;
                     case "DECIMAL":
-                        var dcdocatrib2 = new DCDOCUMENTATTRIB(tpatrib, cddocument, atrib.CDAttribuite_SE, "", Convert.ToDecimal(linha[atrib.NmCampoImagem]), DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
+                        var dcdocatrib2 = new DCDOCUMENTATTRIB(tpatrib, cddocument, (decimal)atrib.CDAttribute_SE, "", Convert.ToDecimal(linha[atrib.NmCampoImagem]), DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
                         _dcdocattribrepository.Adicionar(dcdocatrib2);
                         break;
                     case "INTEIRO":
-                        var dcdocatrib3 = new DCDOCUMENTATTRIB(tpatrib, cddocument, atrib.CDAttribuite_SE, "", Convert.ToInt32(linha[atrib.NmCampoImagem]), DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
+                        var dcdocatrib3 = new DCDOCUMENTATTRIB(tpatrib, cddocument, (decimal)atrib.CDAttribute_SE, "", Convert.ToInt32(linha[atrib.NmCampoImagem]), DateTime.Now, "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
                         _dcdocattribrepository.Adicionar(dcdocatrib3);
                         break;
                     case "DATA":
-                        var dcdocatrib4 = new DCDOCUMENTATTRIB(tpatrib, cddocument, atrib.CDAttribuite_SE, "", 0, Convert.ToDateTime(linha[atrib.NmCampoImagem]), "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
+                        var dcdocatrib4 = new DCDOCUMENTATTRIB(tpatrib, cddocument, (decimal)atrib.CDAttribute_SE, "", 0, Convert.ToDateTime(linha[atrib.NmCampoImagem]), "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
                         _dcdocattribrepository.Adicionar(dcdocatrib4);
                         break;
                     case "MEMORANDO":
-                        var dcdocatrib5 = new DCDOCUMENTATTRIB(tpatrib, cddocument, atrib.CDAttribuite_SE, "", 0, Convert.ToDateTime(linha[atrib.NmCampoImagem]), "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
+                        var dcdocatrib5 = new DCDOCUMENTATTRIB(tpatrib, cddocument, (decimal)atrib.CDAttribute_SE, "", 0, Convert.ToDateTime(linha[atrib.NmCampoImagem]), "", 1, 0, DateTime.Now, "sesuite", cdrevision, 2);
                         _dcdocattribrepository.Adicionar(dcdocatrib5);
                         break;
                 }

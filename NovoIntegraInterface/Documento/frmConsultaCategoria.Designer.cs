@@ -89,6 +89,7 @@
             this.btnIncluir.Size = new System.Drawing.Size(28, 28);
             this.btnIncluir.Text = "toolStripButton2";
             this.btnIncluir.ToolTipText = "Insere novo registro";
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -99,6 +100,7 @@
             this.btnAlterar.Size = new System.Drawing.Size(28, 28);
             this.btnAlterar.Text = "toolStripButton3";
             this.btnAlterar.ToolTipText = "Altera o registro selecionado";
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnConstultar
             // 

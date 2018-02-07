@@ -24,10 +24,18 @@ namespace NovoIntegra.Documento.Infra.Data.EntityConfig
             this.ToTable("AA_Vinculo");
             this.Property(t => t.Cod_Vinculo).HasColumnName("Cod_Vinculo");
             this.Property(t => t.IDCategory).HasColumnName("IDCategory");
-            this.Property(t => t.CDAttribuite_SE).HasColumnName("CDAttribuite_SE");
+            this.Property(t => t.CDAttribute_SE).HasColumnName("CDAttribute_SE");
             this.Property(t => t.NmCampoImagem).HasColumnName("NmCampoImagem");
             this.Property(t => t.Ind_Titulo).HasColumnName("Ind_Titulo");
             this.Property(t => t.Cod_TipoCampo).HasColumnName("Cod_TipoCampo");
+
+            // Relationships
+            this.HasRequired(t => t.AA_TipoCampo)
+                .WithMany(t => t.AA_Vinculo)
+                .HasForeignKey(d => d.Cod_TipoCampo);
+            this.HasOptional(t => t.ADATTRIBUTE)
+                .WithMany(t => t.AA_Vinculo)
+                .HasForeignKey(d => d.CDAttribute_SE);
         }
     }
 }

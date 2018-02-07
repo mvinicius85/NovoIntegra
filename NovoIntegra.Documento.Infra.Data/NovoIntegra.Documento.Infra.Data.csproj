@@ -114,6 +114,7 @@
     <Compile Include="EntityConfig\AA_ParametrosMap.cs" />
     <Compile Include="EntityConfig\AA_TipoCampoMap.cs" />
     <Compile Include="EntityConfig\AA_VinculoMap.cs" />
+    <Compile Include="EntityConfig\ADATTRIBUTEMap.cs" />
     <Compile Include="EntityConfig\ADINTERFACEMap.cs" />
     <Compile Include="EntityConfig\DCCATEGORYMap.cs" />
     <Compile Include="EntityConfig\DCDOCREVISIONMap.cs" />

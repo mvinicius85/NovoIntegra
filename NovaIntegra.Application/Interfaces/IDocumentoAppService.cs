@@ -23,6 +23,7 @@ namespace NovaIntegra.Application.Interfaces
         List<DCCategoryViewModel> ListarCategorias();
         List<AA_VinculoViewModel> ListarVinculo(string cod_categoria);
         List<AA_TipoCampoViewModel> ListarTiposCampo();
+        List<AA_LogViewModel> BuscarLog(FiltroLogViewModel filtro);
         List<ADATTRIBUTEViewModel> BuscarAtributos(string codcategoria);
         void AdicionaVinculo(AA_VinculoViewModel item);
     }

@@ -1,4 +1,5 @@
-﻿using NovoIntegra.Documento.Domain.Entities.Documento;
+﻿using NovoIntegra.Documento.Domain.DTO;
+using NovoIntegra.Documento.Domain.Entities.Documento;
 using NovoIntegra.Documento.Domain.Interfaces.Repository;
 using NovoIntegra.Documento.Domain.Interfaces.Services;
 using System;
@@ -19,6 +20,11 @@ namespace NovoIntegra.Documento.Domain.Services
         public void Adicionar(AA_Log log)
         {
             _logrepository.Adicionar(log);
+        }
+
+        public List<AA_Log> ListarLog(DTOFiltroLog filtro)
+        {
+            return _logrepository.ListarLog(filtro);
         }
     }
 }

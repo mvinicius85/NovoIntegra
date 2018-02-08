@@ -60,14 +60,14 @@
             // consultarParametrosToolStripMenuItem
             // 
             this.consultarParametrosToolStripMenuItem.Name = "consultarParametrosToolStripMenuItem";
-            this.consultarParametrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultarParametrosToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.consultarParametrosToolStripMenuItem.Text = "Parametros";
             this.consultarParametrosToolStripMenuItem.Click += new System.EventHandler(this.consultarParametrosToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
@@ -82,8 +82,9 @@
             // consultarLogToolStripMenuItem
             // 
             this.consultarLogToolStripMenuItem.Name = "consultarLogToolStripMenuItem";
-            this.consultarLogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.consultarLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consultarLogToolStripMenuItem.Text = "Consultar Log";
+            this.consultarLogToolStripMenuItem.Click += new System.EventHandler(this.consultarLogToolStripMenuItem_Click);
             // 
             // MDIPrincipal
             // 

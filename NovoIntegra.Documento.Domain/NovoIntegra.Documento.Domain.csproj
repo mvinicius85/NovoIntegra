@@ -106,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DTOFiltroLog.cs" />
     <Compile Include="DTO\DTOgridAtrib.cs" />
     <Compile Include="Entities\Documento\AA_Log.cs" />
     <Compile Include="Entities\Documento\AA_Parametros.cs" />

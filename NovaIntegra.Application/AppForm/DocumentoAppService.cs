@@ -2,6 +2,7 @@
 using NovaIntegra.Application.Interfaces;
 using NovaIntegra.Application.ViewModel;
 using NovoIntegra.Core.Domain.Interfaces.Services;
+using NovoIntegra.Documento.Domain.DTO;
 using NovoIntegra.Documento.Domain.Entities.Documento;
 using NovoIntegra.Documento.Domain.Interfaces.Services;
 using System;
@@ -199,6 +200,11 @@ namespace NovaIntegra.Application.AppForm
             item.ADATTRIBUTE = null;
             _vinculoservice.AdicionaVinculo(Mapper.Map<AA_Vinculo>(item));
             CommitDocumento();
+        }
+
+        public List<AA_LogViewModel> BuscarLog(FiltroLogViewModel filtro)
+        {
+            return Mapper.Map<List<AA_LogViewModel>>(_logservice.ListarLog(Mapper.Map<DTOFiltroLog>(filtro)));
         }
     }
 }

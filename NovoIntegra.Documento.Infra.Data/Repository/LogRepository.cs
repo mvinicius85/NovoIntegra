@@ -1,4 +1,6 @@
-﻿using NovoIntegra.Documento.Domain.Entities.Documento;
+﻿using Dapper;
+using NovoIntegra.Documento.Domain.DTO;
+using NovoIntegra.Documento.Domain.Entities.Documento;
 using NovoIntegra.Documento.Domain.Interfaces.Repository;
 using NovoIntegra.Documento.Infra.Data.Contexto;
 using System;
@@ -14,6 +16,17 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         public LogRepository(SeSuiteContext context) : base(context)
         {
 
+        }
+
+        public List<AA_Log> ListarLog(DTOFiltroLog filtro)
+        {
+            var con = Db.Database.Connection;
+
+            var sql = "SELECT * from AA_Log where " + filtro.SWhere();
+
+            var log = con.Query<AA_Log>(sql, filtro).ToList();
+
+            return log;
         }
     }
 }

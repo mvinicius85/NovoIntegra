@@ -51,6 +51,6 @@ namespace NovaIntegra.Application.ViewModel
         public Nullable<decimal> QTMEMLINES { get; set; }
         public Nullable<decimal> FGMEMZOOM { get; set; }
         public string NMFILTER { get; set; }
-        public virtual ICollection<AA_VinculoViewModel> AA_Vinculo { get; set; }
+        //public virtual ICollection<AA_VinculoViewModel> AA_Vinculo { get; set; }
     }
 }

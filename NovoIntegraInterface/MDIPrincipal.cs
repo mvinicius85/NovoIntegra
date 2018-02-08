@@ -1,4 +1,5 @@
 ﻿using NovoIntegraInterface.Documento;
+using NovoIntegraInterface.Log;
 using NovoIntegraInterface.Suporte;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,19 @@ namespace NovoIntegraInterface
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Support.BuscaForm<frmConsultaCategoria>();  //  Program.Container.GetInstance<frmCadastroContaContabil>();
+            if (!form.Created)
+            {
+                form.MdiParent = this;
+                form.Show();
+                return;
+            }
+            form.BringToFront();
+            return;
+        }
+
+        private void consultarLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Support.BuscaForm<frmConsultaLog>();  //  Program.Container.GetInstance<frmCadastroContaContabil>();
             if (!form.Created)
             {
                 form.MdiParent = this;

@@ -19,6 +19,8 @@ namespace NovoIntegra.Application.AutoMapper
             CreateMap<gridCategoriasViewModel, DTOgridAtrib>();
             CreateMap<AA_VinculoViewModel, AA_Vinculo>();
             CreateMap<AA_TipoCampoViewModel, AA_TipoCampo>();
+            CreateMap<AA_LogViewModel, AA_Log>();
+            CreateMap<FiltroLogViewModel, DTOFiltroLog>();
         }
     }
 }

@@ -98,19 +98,25 @@ namespace NovoIntegraInterface.Documento
 
         private void CarregaCadastro(frmCadastroCategoria frmcadastro, ModoAcesso acesso)
         {
-            if (dgvFiltro.SelectedRows.Count > 0)
+            if (acesso == ModoAcesso.Inclusao)
             {
-                Cursor = Cursors.WaitCursor;
                 frmcadastro.MdiParent = this.MdiParent;
                 frmcadastro.acesso = acesso;
-                if (acesso != ModoAcesso.Inclusao)
+                frmcadastro.Show();
+            }
+            else
+            {
+                if (dgvFiltro.SelectedRows.Count > 0)
                 {
+                    Cursor = Cursors.WaitCursor;
+                    frmcadastro.MdiParent = this.MdiParent;
+                    frmcadastro.acesso = acesso;
                     var categoria = (gridCategoriasViewModel)dgvFiltro.SelectedRows[0].DataBoundItem;
                     frmcadastro.cod_categoria = categoria.IDCATEGORY;
                     frmcadastro.Load += (s, args) => frmcadastro.CarregaForm();
+                    frmcadastro.Show();
+                    Cursor = Cursors.Default;
                 }
-                frmcadastro.Show();
-                Cursor = Cursors.Default;
             }
         }
 

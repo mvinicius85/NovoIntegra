@@ -123,6 +123,7 @@
     <Compile Include="Entities\Documento\GNCOMPFILECONTCOPY.cs" />
     <Compile Include="Entities\Documento\GNREVISION.cs" />
     <Compile Include="Entities\Documento\GNSEQUENCE.cs" />
+    <Compile Include="Interfaces\Repository\IADAttributeRepository.cs" />
     <Compile Include="Interfaces\Repository\IADInterfaceRepository.cs" />
     <Compile Include="Interfaces\Repository\IDCCategoryRepository.cs" />
     <Compile Include="Interfaces\Repository\IDCDocRevisionRepository.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Interfaces\Repository\IParametrosRepository.cs" />
     <Compile Include="Interfaces\Repository\ITipoCampoRepository.cs" />
     <Compile Include="Interfaces\Repository\IVinculoRepository.cs" />
+    <Compile Include="Interfaces\Services\IADAttributeService.cs" />
     <Compile Include="Interfaces\Services\IADInterfaceService.cs" />
     <Compile Include="Interfaces\Services\IDCCategoryService.cs" />
     <Compile Include="Interfaces\Services\IDCDocumentService.cs" />
@@ -145,8 +147,10 @@
     <Compile Include="Interfaces\Services\IGNRevisionService.cs" />
     <Compile Include="Interfaces\Services\ILogService.cs" />
     <Compile Include="Interfaces\Services\IParametrosService.cs" />
+    <Compile Include="Interfaces\Services\ITipoCampoService.cs" />
     <Compile Include="Interfaces\Services\IVinculoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ADAttributeService.cs" />
     <Compile Include="Services\ADInterfaceService.cs" />
     <Compile Include="Services\DCCategoryService.cs" />
     <Compile Include="Services\DCDocumentService.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Services\GNRevisionService.cs" />
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\ParametrosService.cs" />
+    <Compile Include="Services\TipoCampoService.cs" />
     <Compile Include="Services\VinculoService.cs" />
   </ItemGroup>
   <ItemGroup>

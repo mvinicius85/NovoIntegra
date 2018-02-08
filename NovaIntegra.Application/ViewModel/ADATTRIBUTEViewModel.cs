@@ -8,6 +8,15 @@ namespace NovaIntegra.Application.ViewModel
 {
     public class ADATTRIBUTEViewModel
     {
+        public ADATTRIBUTEViewModel()
+        {
+
+        }
+        public ADATTRIBUTEViewModel(decimal _cdatrib, string _nmatrib)
+        {
+            CDATTRIBUTE = _cdatrib;
+            NMATTRIBUTE = _nmatrib;
+        }
         public decimal CDATTRIBUTE { get; set; }
         public Nullable<decimal> CDISOSYSTEM { get; set; }
         public string NMATTRIBUTE { get; set; }
@@ -42,5 +51,6 @@ namespace NovaIntegra.Application.ViewModel
         public Nullable<decimal> QTMEMLINES { get; set; }
         public Nullable<decimal> FGMEMZOOM { get; set; }
         public string NMFILTER { get; set; }
+        public virtual ICollection<AA_VinculoViewModel> AA_Vinculo { get; set; }
     }
 }

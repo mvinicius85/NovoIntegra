@@ -22,6 +22,8 @@ namespace NovaIntegra.Application.Interfaces
         DCCategoryViewModel BuscaCategoria(string cod_categoria);
         List<DCCategoryViewModel> ListarCategorias();
         List<AA_VinculoViewModel> ListarVinculo(string cod_categoria);
-
+        List<AA_TipoCampoViewModel> ListarTiposCampo();
+        List<ADATTRIBUTEViewModel> BuscarAtributos(string codcategoria);
+        void AdicionaVinculo(AA_VinculoViewModel item);
     }
 }

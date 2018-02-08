@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroCategoria));
             this.tlsVendasPesquisa = new System.Windows.Forms.ToolStrip();
+            this.btnGravar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnVoltar = new System.Windows.Forms.ToolStripButton();
             this.lblToolBar = new System.Windows.Forms.ToolStripLabel();
             this.dgvAtributos = new System.Windows.Forms.DataGridView();
             this.gpbAtributo = new System.Windows.Forms.GroupBox();
-            this.gpbCategoria = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboCodCategoria = new System.Windows.Forms.ComboBox();
-            this.txtDescCategoria = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboAtribSeSuite = new System.Windows.Forms.ComboBox();
-            this.cboTipoAtributo = new System.Windows.Forms.ComboBox();
-            this.txtAtribImagem = new System.Windows.Forms.TextBox();
+            this.btnAdicionarVinculo = new System.Windows.Forms.Button();
+            this.btnLimparAtributos = new System.Windows.Forms.Button();
             this.chkTitulo = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.ToolStripButton();
-            this.btnVoltar = new System.Windows.Forms.ToolStripButton();
+            this.txtAtribImagem = new System.Windows.Forms.TextBox();
+            this.cboTipoAtributo = new System.Windows.Forms.ComboBox();
+            this.cboAtribSeSuite = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gpbCategoria = new System.Windows.Forms.GroupBox();
+            this.txtDescCategoria = new System.Windows.Forms.TextBox();
+            this.cboCodCategoria = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tlsVendasPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtributos)).BeginInit();
             this.gpbAtributo.SuspendLayout();
@@ -72,10 +72,32 @@
             this.tlsVendasPesquisa.TabIndex = 7;
             this.tlsVendasPesquisa.Text = "toolStrip1";
             // 
+            // btnGravar
+            // 
+            this.btnGravar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
+            this.btnGravar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(28, 28);
+            this.btnGravar.Text = "toolStripButton4";
+            this.btnGravar.ToolTipText = "Salva os dados da tela";
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 23);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(28, 28);
+            this.btnVoltar.Text = "toolStripButton5";
+            this.btnVoltar.ToolTipText = "Retorna a tela anterior";
+            this.btnVoltar.Visible = false;
             // 
             // lblToolBar
             // 
@@ -84,6 +106,8 @@
             // 
             // dgvAtributos
             // 
+            this.dgvAtributos.AllowUserToResizeColumns = false;
+            this.dgvAtributos.AllowUserToResizeRows = false;
             this.dgvAtributos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAtributos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtributos.Location = new System.Drawing.Point(5, 160);
@@ -94,8 +118,8 @@
             // 
             // gpbAtributo
             // 
-            this.gpbAtributo.Controls.Add(this.button2);
-            this.gpbAtributo.Controls.Add(this.button1);
+            this.gpbAtributo.Controls.Add(this.btnAdicionarVinculo);
+            this.gpbAtributo.Controls.Add(this.btnLimparAtributos);
             this.gpbAtributo.Controls.Add(this.chkTitulo);
             this.gpbAtributo.Controls.Add(this.txtAtribImagem);
             this.gpbAtributo.Controls.Add(this.cboTipoAtributo);
@@ -110,6 +134,90 @@
             this.gpbAtributo.TabStop = false;
             this.gpbAtributo.Text = "Atributo";
             // 
+            // btnAdicionarVinculo
+            // 
+            this.btnAdicionarVinculo.Image = global::NovoIntegraInterface.Properties.Resources.Plus_Blue_24x24;
+            this.btnAdicionarVinculo.Location = new System.Drawing.Point(613, 48);
+            this.btnAdicionarVinculo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdicionarVinculo.Name = "btnAdicionarVinculo";
+            this.btnAdicionarVinculo.Size = new System.Drawing.Size(30, 32);
+            this.btnAdicionarVinculo.TabIndex = 9;
+            this.btnAdicionarVinculo.UseVisualStyleBackColor = true;
+            this.btnAdicionarVinculo.Click += new System.EventHandler(this.btnAdicionarVinculo_Click);
+            // 
+            // btnLimparAtributos
+            // 
+            this.btnLimparAtributos.Image = global::NovoIntegraInterface.Properties.Resources.Document_New_Blue_24x24;
+            this.btnLimparAtributos.Location = new System.Drawing.Point(583, 48);
+            this.btnLimparAtributos.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLimparAtributos.Name = "btnLimparAtributos";
+            this.btnLimparAtributos.Size = new System.Drawing.Size(30, 32);
+            this.btnLimparAtributos.TabIndex = 8;
+            this.btnLimparAtributos.UseVisualStyleBackColor = true;
+            this.btnLimparAtributos.Click += new System.EventHandler(this.btnLimparAtributos_Click);
+            // 
+            // chkTitulo
+            // 
+            this.chkTitulo.AutoSize = true;
+            this.chkTitulo.Location = new System.Drawing.Point(347, 51);
+            this.chkTitulo.Name = "chkTitulo";
+            this.chkTitulo.Size = new System.Drawing.Size(54, 17);
+            this.chkTitulo.TabIndex = 7;
+            this.chkTitulo.Text = "Título";
+            this.chkTitulo.UseVisualStyleBackColor = true;
+            // 
+            // txtAtribImagem
+            // 
+            this.txtAtribImagem.Location = new System.Drawing.Point(347, 24);
+            this.txtAtribImagem.Name = "txtAtribImagem";
+            this.txtAtribImagem.Size = new System.Drawing.Size(294, 20);
+            this.txtAtribImagem.TabIndex = 6;
+            // 
+            // cboTipoAtributo
+            // 
+            this.cboTipoAtributo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoAtributo.FormattingEnabled = true;
+            this.cboTipoAtributo.Location = new System.Drawing.Point(91, 48);
+            this.cboTipoAtributo.Name = "cboTipoAtributo";
+            this.cboTipoAtributo.Size = new System.Drawing.Size(145, 21);
+            this.cboTipoAtributo.TabIndex = 5;
+            // 
+            // cboAtribSeSuite
+            // 
+            this.cboAtribSeSuite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAtribSeSuite.FormattingEnabled = true;
+            this.cboAtribSeSuite.Location = new System.Drawing.Point(91, 24);
+            this.cboAtribSeSuite.Name = "cboAtribSeSuite";
+            this.cboAtribSeSuite.Size = new System.Drawing.Size(145, 21);
+            this.cboAtribSeSuite.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Tipo Atributo:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(267, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Atrib. Imagem:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Atrib. SE Suite:";
+            // 
             // gpbCategoria
             // 
             this.gpbCategoria.Controls.Add(this.txtDescCategoria);
@@ -123,14 +231,23 @@
             this.gpbCategoria.TabStop = false;
             this.gpbCategoria.Text = "Categoria";
             // 
-            // label1
+            // txtDescCategoria
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código:";
+            this.txtDescCategoria.Location = new System.Drawing.Point(336, 17);
+            this.txtDescCategoria.Name = "txtDescCategoria";
+            this.txtDescCategoria.ReadOnly = true;
+            this.txtDescCategoria.Size = new System.Drawing.Size(307, 20);
+            this.txtDescCategoria.TabIndex = 3;
+            // 
+            // cboCodCategoria
+            // 
+            this.cboCodCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCodCategoria.FormattingEnabled = true;
+            this.cboCodCategoria.Location = new System.Drawing.Point(56, 17);
+            this.cboCodCategoria.Name = "cboCodCategoria";
+            this.cboCodCategoria.Size = new System.Drawing.Size(210, 21);
+            this.cboCodCategoria.TabIndex = 2;
+            this.cboCodCategoria.SelectedValueChanged += new System.EventHandler(this.cboCodCategoria_SelectedValueChanged);
             // 
             // label2
             // 
@@ -141,121 +258,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descrição:";
             // 
-            // cboCodCategoria
+            // label1
             // 
-            this.cboCodCategoria.FormattingEnabled = true;
-            this.cboCodCategoria.Location = new System.Drawing.Point(56, 17);
-            this.cboCodCategoria.Name = "cboCodCategoria";
-            this.cboCodCategoria.Size = new System.Drawing.Size(210, 21);
-            this.cboCodCategoria.TabIndex = 2;
-            // 
-            // txtDescCategoria
-            // 
-            this.txtDescCategoria.Location = new System.Drawing.Point(336, 17);
-            this.txtDescCategoria.Name = "txtDescCategoria";
-            this.txtDescCategoria.Size = new System.Drawing.Size(307, 20);
-            this.txtDescCategoria.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Atrib. SE Suite:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Atrib. Imagem:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 51);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Tipo Atributo:";
-            // 
-            // cboAtribSeSuite
-            // 
-            this.cboAtribSeSuite.FormattingEnabled = true;
-            this.cboAtribSeSuite.Location = new System.Drawing.Point(91, 24);
-            this.cboAtribSeSuite.Name = "cboAtribSeSuite";
-            this.cboAtribSeSuite.Size = new System.Drawing.Size(145, 21);
-            this.cboAtribSeSuite.TabIndex = 4;
-            // 
-            // cboTipoAtributo
-            // 
-            this.cboTipoAtributo.FormattingEnabled = true;
-            this.cboTipoAtributo.Location = new System.Drawing.Point(91, 48);
-            this.cboTipoAtributo.Name = "cboTipoAtributo";
-            this.cboTipoAtributo.Size = new System.Drawing.Size(145, 21);
-            this.cboTipoAtributo.TabIndex = 5;
-            // 
-            // txtAtribImagem
-            // 
-            this.txtAtribImagem.Location = new System.Drawing.Point(347, 24);
-            this.txtAtribImagem.Name = "txtAtribImagem";
-            this.txtAtribImagem.Size = new System.Drawing.Size(294, 20);
-            this.txtAtribImagem.TabIndex = 6;
-            // 
-            // chkTitulo
-            // 
-            this.chkTitulo.AutoSize = true;
-            this.chkTitulo.Location = new System.Drawing.Point(347, 51);
-            this.chkTitulo.Name = "chkTitulo";
-            this.chkTitulo.Size = new System.Drawing.Size(54, 17);
-            this.chkTitulo.TabIndex = 7;
-            this.chkTitulo.Text = "Título";
-            this.chkTitulo.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = global::NovoIntegraInterface.Properties.Resources.Plus_Blue_24x24;
-            this.button2.Location = new System.Drawing.Point(613, 48);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 32);
-            this.button2.TabIndex = 9;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::NovoIntegraInterface.Properties.Resources.Document_New_Blue_24x24;
-            this.button1.Location = new System.Drawing.Point(583, 48);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 32);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
-            this.btnGravar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(28, 28);
-            this.btnGravar.Text = "toolStripButton4";
-            this.btnGravar.ToolTipText = "Salva os dados da tela";
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(28, 28);
-            this.btnVoltar.Text = "toolStripButton5";
-            this.btnVoltar.ToolTipText = "Retorna a tela anterior";
-            this.btnVoltar.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código:";
             // 
             // frmCadastroCategoria
             // 
@@ -303,7 +313,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton btnGravar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLimparAtributos;
+        private System.Windows.Forms.Button btnAdicionarVinculo;
     }
 }

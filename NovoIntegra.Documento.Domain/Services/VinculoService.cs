@@ -17,6 +17,12 @@ namespace NovoIntegra.Documento.Domain.Services
         {
             _vinculorepository = vinculorepository;
         }
+
+        public void AdicionaVinculo(AA_Vinculo aA_Vinculo)
+        {
+            _vinculorepository.Adicionar(aA_Vinculo);
+        }
+
         public List<AA_Vinculo> RetornaAtributos(string idcategory)
         {
             return _vinculorepository.Buscar(x => x.IDCategory == idcategory).ToList();

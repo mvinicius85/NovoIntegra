@@ -26,6 +26,8 @@ namespace NovaIntegra.Application.AppForm
         private readonly IGNCompFileContCopyService _gncompservice;
         private readonly ILogService _logservice;
         private readonly IParametrosService _parametrosserivce;
+        private readonly ITipoCampoService _tipocamposervice;
+        private readonly IADAttributeService _adattributeservice;
 
         string msg;
         string lote;
@@ -39,7 +41,8 @@ namespace NovaIntegra.Application.AppForm
         public DocumentoAppService(IDCCategoryService dccategoryservice, IMdbFileService mdbservice,
             IVinculoService vinculoservice, IDCDocumentService dcdocumentservice, IGNAssocService gnassocservice,
             IGNRevisionService gnrevisionservice, IGNCompFileContCopyService gncompservice,
-            ILogService logervice, IParametrosService parametrosserivce,
+            ILogService logervice, IParametrosService parametrosserivce, ITipoCampoService tipocamposervice,
+            IADAttributeService adattributeservice, 
             NovoIntegra.Documento.Infra.Data.Interfaces.IUnitOfWork uow) : base(uow)
         {
             _dccategoryservice = dccategoryservice;
@@ -51,6 +54,8 @@ namespace NovaIntegra.Application.AppForm
             _gncompservice = gncompservice;
             _logservice = logervice;
             _parametrosserivce = parametrosserivce;
+            _tipocamposervice = tipocamposervice;
+            _adattributeservice = adattributeservice;
         }
         public List<DCCategoryViewModel> BuscarTodas()
         {
@@ -175,6 +180,25 @@ namespace NovaIntegra.Application.AppForm
         public List<DCCategoryViewModel> ListarCategorias()
         {
             return Mapper.Map<List<DCCategoryViewModel>>(_dccategoryservice.BuscaTodos());
+        }
+
+        public List<AA_TipoCampoViewModel> ListarTiposCampo()
+        {
+            return Mapper.Map<List<AA_TipoCampoViewModel>>(_tipocamposervice.ListarTiposCampo());
+        }
+
+        public List<ADATTRIBUTEViewModel> BuscarAtributos(string codcategoria)
+        {
+            return Mapper.Map<List<ADATTRIBUTEViewModel>>(_adattributeservice.ListaAtributos(codcategoria));
+        }
+
+        public void AdicionaVinculo(AA_VinculoViewModel item)
+        {
+            BeginDocumentoTransaction();
+            item.AA_TipoCampo = null;
+            item.ADATTRIBUTE = null;
+            _vinculoservice.AdicionaVinculo(Mapper.Map<AA_Vinculo>(item));
+            CommitDocumento();
         }
     }
 }

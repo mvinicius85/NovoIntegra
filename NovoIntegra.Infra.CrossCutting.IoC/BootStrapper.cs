@@ -37,6 +37,8 @@ namespace NovoIntegra.Infra.CrossCutting.IoC
             container.Register<IGNCompFileContCopyService, GNCompFileContCopyService>(Lifestyle.Scoped);
             container.Register<ILogService, LogService>(Lifestyle.Scoped);
             container.Register<IParametrosService, ParametrosService>(Lifestyle.Scoped);
+            container.Register<ITipoCampoService, TipoCampoService>(Lifestyle.Scoped);
+            container.Register<IADAttributeService, ADAttributeService>(Lifestyle.Scoped);
 
             #endregion
 
@@ -55,6 +57,7 @@ namespace NovoIntegra.Infra.CrossCutting.IoC
             container.Register<ILogRepository, LogRepository>(Lifestyle.Scoped);
             container.Register<IDcDocumentArchivalRepository, DcDocumentArchivalRepository>(Lifestyle.Scoped);
             container.Register<IParametrosRepository, ParametrosRepository>(Lifestyle.Scoped);
+            container.Register<IADAttributeRepository, ADAttributeRepository>(Lifestyle.Scoped);
             #endregion
 
             container.RegisterSingleton(Mapper.Configuration);

@@ -128,6 +128,7 @@
     <Compile Include="EntityConfig\GNSEQUENCEMap.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ADAttributeRepository.cs" />
     <Compile Include="Repository\ADInterfaceRepository.cs" />
     <Compile Include="Repository\DCCategoryRepository.cs" />
     <Compile Include="Repository\DCDocRevisionRepository.cs" />

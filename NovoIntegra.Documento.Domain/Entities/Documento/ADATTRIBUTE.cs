@@ -7,7 +7,7 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
     {
         public ADATTRIBUTE()
         {
-            this.AA_Vinculo = new List<AA_Vinculo>();
+           this.AA_Vinculo = new List<AA_Vinculo>();
         }
 
         public decimal CDATTRIBUTE { get; set; }

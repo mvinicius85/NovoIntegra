@@ -33,6 +33,7 @@ namespace NovaIntegra.Application.AppForm
         string msg;
         string lote;
         string documento;
+        string idcateg;
         int cddocumentini;
         int cdassocini;
         int cdrevisionini;
@@ -71,6 +72,10 @@ namespace NovaIntegra.Application.AppForm
         {
             try
             {
+                msg = "";
+                lote = "";
+                documento = "";
+                idcateg = "";
 
                 var cddocument = _dcdocumentservice.RetornaMax();
                 var cdassoc = _gnassocservice.RetornaMax();
@@ -95,10 +100,17 @@ namespace NovaIntegra.Application.AppForm
                     cdcomp = cdcomp + 1;
 
                     msg = "Não foi encontrada a coluna com a categoria do documento";
-                    var idcateg = item["IDCATEGORY"].ToString();
+                    idcateg = item["IDCATEGORY"].ToString();
+
+                    msg = "O documento não foi identificado.";
+                    documento = item["IMAGEM"].ToString();
 
                     msg = "Categoria informada não identificada no SE Suite";
                     var atrib = _vinculoservice.RetornaAtributos(idcateg);
+                    if (atrib.Count.Equals(0))
+                    {
+                        throw new Exception();
+                    }
 
                     msg = "Erro ao inserir documento";
                     _dcdocumentservice.InsereDocumento(item, atrib, cddocument, cdassoc, cdrevision, cdcomp);
@@ -112,6 +124,12 @@ namespace NovaIntegra.Application.AppForm
                             msg = "Erro ao inserir imagem";
                             BeginDocumentoTransaction();
                             _dcdocumentservice.InsereImagem(path, item, cddocument, atrib);
+                            CommitDocumento();
+
+                            msg = "Erro ao inserir log";
+                            var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false);
+                            BeginDocumentoTransaction();
+                            _logservice.Adicionar(log);
                             CommitDocumento();
                         }
                        
@@ -130,7 +148,7 @@ namespace NovaIntegra.Application.AppForm
                 BeginDocumentoTransaction();
                 _dcdocumentservice.ExcluirArquivo(cddocumentini, cdrevisionini, cdassocini, cdcompini);
                 CommitDocumento();
-                var log = new AA_Log(lote, "", "", msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true);
+                var log = new AA_Log(lote,documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true);
                 BeginDocumentoTransaction();
                 _logservice.Adicionar(log);
                 CommitDocumento();

@@ -191,6 +191,7 @@
             this.btnAlterar.Size = new System.Drawing.Size(28, 28);
             this.btnAlterar.Text = "toolStripButton3";
             this.btnAlterar.ToolTipText = "Altera o registro selecionado";
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnConstultar
             // 

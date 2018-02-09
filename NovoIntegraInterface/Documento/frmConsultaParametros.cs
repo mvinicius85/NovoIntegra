@@ -57,6 +57,30 @@ namespace NovoIntegraInterface.Documento
                 MessageBox.Show(ex.GetBaseException().Message);
             }
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var frmcadastro = Program.Container.GetInstance<frmCadastroParametros>();
+                if (dgvFiltro.SelectedRows.Count > 0)
+                {
+                    Cursor = Cursors.WaitCursor;
+                    frmcadastro.MdiParent = this.MdiParent;
+                    var conta = (AA_ParametrosViewModel)dgvFiltro.SelectedRows[0].DataBoundItem;
+                    frmcadastro.cod_parametro = conta.Cod_Parametro;
+                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm();
+                    frmcadastro.Show();
+                    Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.GetBaseException().Message);
+            }
+        }
     }
   
 }

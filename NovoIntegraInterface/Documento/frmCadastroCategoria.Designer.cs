@@ -30,14 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroCategoria));
             this.tlsVendasPesquisa = new System.Windows.Forms.ToolStrip();
-            this.btnGravar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnVoltar = new System.Windows.Forms.ToolStripButton();
             this.lblToolBar = new System.Windows.Forms.ToolStripLabel();
             this.dgvAtributos = new System.Windows.Forms.DataGridView();
             this.gpbAtributo = new System.Windows.Forms.GroupBox();
-            this.btnAdicionarVinculo = new System.Windows.Forms.Button();
-            this.btnLimparAtributos = new System.Windows.Forms.Button();
             this.chkTitulo = new System.Windows.Forms.CheckBox();
             this.txtAtribImagem = new System.Windows.Forms.TextBox();
             this.cboTipoAtributo = new System.Windows.Forms.ComboBox();
@@ -50,6 +46,11 @@
             this.cboCodCategoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAdicionarVinculo = new System.Windows.Forms.Button();
+            this.btnLimparAtributos = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.ToolStripButton();
+            this.btnVoltar = new System.Windows.Forms.ToolStripButton();
             this.tlsVendasPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtributos)).BeginInit();
             this.gpbAtributo.SuspendLayout();
@@ -72,32 +73,10 @@
             this.tlsVendasPesquisa.TabIndex = 7;
             this.tlsVendasPesquisa.Text = "toolStrip1";
             // 
-            // btnGravar
-            // 
-            this.btnGravar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
-            this.btnGravar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(28, 28);
-            this.btnGravar.Text = "toolStripButton4";
-            this.btnGravar.ToolTipText = "Salva os dados da tela";
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 23);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(28, 28);
-            this.btnVoltar.Text = "toolStripButton5";
-            this.btnVoltar.ToolTipText = "Retorna a tela anterior";
-            this.btnVoltar.Visible = false;
             // 
             // lblToolBar
             // 
@@ -115,9 +94,11 @@
             this.dgvAtributos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAtributos.Size = new System.Drawing.Size(649, 150);
             this.dgvAtributos.TabIndex = 8;
+            this.dgvAtributos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtributos_CellClick);
             // 
             // gpbAtributo
             // 
+            this.gpbAtributo.Controls.Add(this.btnExcluir);
             this.gpbAtributo.Controls.Add(this.btnAdicionarVinculo);
             this.gpbAtributo.Controls.Add(this.btnLimparAtributos);
             this.gpbAtributo.Controls.Add(this.chkTitulo);
@@ -134,28 +115,6 @@
             this.gpbAtributo.TabStop = false;
             this.gpbAtributo.Text = "Atributo";
             // 
-            // btnAdicionarVinculo
-            // 
-            this.btnAdicionarVinculo.Image = global::NovoIntegraInterface.Properties.Resources.Plus_Blue_24x24;
-            this.btnAdicionarVinculo.Location = new System.Drawing.Point(613, 48);
-            this.btnAdicionarVinculo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAdicionarVinculo.Name = "btnAdicionarVinculo";
-            this.btnAdicionarVinculo.Size = new System.Drawing.Size(30, 32);
-            this.btnAdicionarVinculo.TabIndex = 9;
-            this.btnAdicionarVinculo.UseVisualStyleBackColor = true;
-            this.btnAdicionarVinculo.Click += new System.EventHandler(this.btnAdicionarVinculo_Click);
-            // 
-            // btnLimparAtributos
-            // 
-            this.btnLimparAtributos.Image = global::NovoIntegraInterface.Properties.Resources.Document_New_Blue_24x24;
-            this.btnLimparAtributos.Location = new System.Drawing.Point(583, 48);
-            this.btnLimparAtributos.Margin = new System.Windows.Forms.Padding(0);
-            this.btnLimparAtributos.Name = "btnLimparAtributos";
-            this.btnLimparAtributos.Size = new System.Drawing.Size(30, 32);
-            this.btnLimparAtributos.TabIndex = 8;
-            this.btnLimparAtributos.UseVisualStyleBackColor = true;
-            this.btnLimparAtributos.Click += new System.EventHandler(this.btnLimparAtributos_Click);
-            // 
             // chkTitulo
             // 
             this.chkTitulo.AutoSize = true;
@@ -165,6 +124,7 @@
             this.chkTitulo.TabIndex = 7;
             this.chkTitulo.Text = "Título";
             this.chkTitulo.UseVisualStyleBackColor = true;
+            this.chkTitulo.CheckedChanged += new System.EventHandler(this.chkTitulo_CheckedChanged);
             // 
             // txtAtribImagem
             // 
@@ -172,6 +132,7 @@
             this.txtAtribImagem.Name = "txtAtribImagem";
             this.txtAtribImagem.Size = new System.Drawing.Size(294, 20);
             this.txtAtribImagem.TabIndex = 6;
+            this.txtAtribImagem.TextChanged += new System.EventHandler(this.txtAtribImagem_TextChanged);
             // 
             // cboTipoAtributo
             // 
@@ -181,6 +142,7 @@
             this.cboTipoAtributo.Name = "cboTipoAtributo";
             this.cboTipoAtributo.Size = new System.Drawing.Size(145, 21);
             this.cboTipoAtributo.TabIndex = 5;
+            this.cboTipoAtributo.SelectedValueChanged += new System.EventHandler(this.cboTipoAtributo_SelectedValueChanged);
             // 
             // cboAtribSeSuite
             // 
@@ -190,6 +152,7 @@
             this.cboAtribSeSuite.Name = "cboAtribSeSuite";
             this.cboAtribSeSuite.Size = new System.Drawing.Size(145, 21);
             this.cboAtribSeSuite.TabIndex = 4;
+            this.cboAtribSeSuite.SelectedValueChanged += new System.EventHandler(this.cboAtribSeSuite_SelectedValueChanged);
             // 
             // label5
             // 
@@ -267,6 +230,62 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código:";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.Image = global::NovoIntegraInterface.Properties.Resources.bloggif_5a7dda9c38a0d;
+            this.btnExcluir.Location = new System.Drawing.Point(553, 47);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(30, 32);
+            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAdicionarVinculo
+            // 
+            this.btnAdicionarVinculo.Image = global::NovoIntegraInterface.Properties.Resources.Plus_Blue_24x24;
+            this.btnAdicionarVinculo.Location = new System.Drawing.Point(613, 48);
+            this.btnAdicionarVinculo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdicionarVinculo.Name = "btnAdicionarVinculo";
+            this.btnAdicionarVinculo.Size = new System.Drawing.Size(30, 32);
+            this.btnAdicionarVinculo.TabIndex = 9;
+            this.btnAdicionarVinculo.UseVisualStyleBackColor = true;
+            this.btnAdicionarVinculo.Click += new System.EventHandler(this.btnAdicionarVinculo_Click);
+            // 
+            // btnLimparAtributos
+            // 
+            this.btnLimparAtributos.Image = global::NovoIntegraInterface.Properties.Resources.Document_New_Blue_24x24;
+            this.btnLimparAtributos.Location = new System.Drawing.Point(583, 48);
+            this.btnLimparAtributos.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLimparAtributos.Name = "btnLimparAtributos";
+            this.btnLimparAtributos.Size = new System.Drawing.Size(30, 32);
+            this.btnLimparAtributos.TabIndex = 8;
+            this.btnLimparAtributos.UseVisualStyleBackColor = true;
+            this.btnLimparAtributos.Click += new System.EventHandler(this.btnLimparAtributos_Click);
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
+            this.btnGravar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(28, 28);
+            this.btnGravar.Text = "toolStripButton4";
+            this.btnGravar.ToolTipText = "Salva os dados da tela";
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(28, 28);
+            this.btnVoltar.Text = "toolStripButton5";
+            this.btnVoltar.ToolTipText = "Retorna a tela anterior";
+            this.btnVoltar.Visible = false;
+            // 
             // frmCadastroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,5 +334,6 @@
         private System.Windows.Forms.ToolStripButton btnGravar;
         private System.Windows.Forms.Button btnLimparAtributos;
         private System.Windows.Forms.Button btnAdicionarVinculo;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

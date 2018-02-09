@@ -30,7 +30,7 @@ namespace NovoIntegraInterface.Log
                 var filtro = new FiltroLogViewModel(dtpInicio.Value, dtpFim.Value,
                     cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked);
                 var log = _docappservice.BuscarLog(filtro);
-                dgvFiltro.DataSource = log;
+                dgvFiltro.DataSource = log.OrderBy(x => x.DtEvento).ToList();
 
 
                 Support.DataGridView_ConfigGrid(dgvFiltro, false);

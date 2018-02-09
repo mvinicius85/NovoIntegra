@@ -120,6 +120,11 @@ namespace NovoIntegraInterface.Documento
 
         private void btnAdicionarVinculo_Click(object sender, EventArgs e)
         {
+            if ((int)cboTipoAtributo.SelectedValue == 0)
+            {
+                MessageBox.Show("Por favor selecione o tipo do campo.");
+                return;
+            }
             var vinculo = new AA_VinculoViewModel(cboCodCategoria.SelectedValue.ToString(), (decimal)cboAtribSeSuite.SelectedValue,
                 txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue,
                 (ADATTRIBUTEViewModel)cboAtribSeSuite.SelectedItem, (AA_TipoCampoViewModel)cboTipoAtributo.SelectedItem);
@@ -153,6 +158,65 @@ namespace NovoIntegraInterface.Documento
             {
                 MessageBox.Show(ex.GetBaseException().Message);
             }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var retirar = new AA_VinculoViewModel(cboCodCategoria.SelectedValue.ToString(), (decimal)cboAtribSeSuite.SelectedValue,
+                txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue,
+                (ADATTRIBUTEViewModel)cboAtribSeSuite.SelectedItem, (AA_TipoCampoViewModel)cboTipoAtributo.SelectedItem);
+            var item = atributos.Find(x => x.CDAttribute_SE == retirar.CDAttribute_SE && x.Cod_TipoCampo == retirar.Cod_TipoCampo
+                && x.NmCampoImagem == retirar.NmCampoImagem);
+            atributos.Remove(item);
+            dgvAtributos.DataSource = null;
+            dgvAtributos.DataSource = atributos;
+            RefazGrid();
+            dgvAtributos.SelectAll();
+        }
+
+        private void dgvAtributos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvAtributos.SelectedRows.Count > 0)
+            {
+                var categoria = (AA_VinculoViewModel)dgvAtributos.SelectedRows[0].DataBoundItem;
+                cboTipoAtributo.SelectedValue = categoria.Cod_TipoCampo;
+                cboAtribSeSuite.SelectedValue = categoria.CDAttribute_SE;
+                txtAtribImagem.Text = categoria.NmCampoImagem;
+                chkTitulo.Checked = categoria.Ind_Titulo;
+            }
+
+            if (acesso == ModoAcesso.Alteracao)
+            {
+                btnExcluir.Enabled = true;
+            }
+        }
+
+        private void cboAtribSeSuite_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DesativaExcluir();
+        }
+
+        private void cboTipoAtributo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DesativaExcluir();
+        }
+
+        internal void DesativaExcluir()
+        {
+            if (acesso == ModoAcesso.Alteracao)
+            {
+                btnExcluir.Enabled = false;
+            }
+        }
+
+        private void chkTitulo_CheckedChanged(object sender, EventArgs e)
+        {
+            DesativaExcluir();
+        }
+
+        private void txtAtribImagem_TextChanged(object sender, EventArgs e)
+        {
+            DesativaExcluir();
         }
     }
 }

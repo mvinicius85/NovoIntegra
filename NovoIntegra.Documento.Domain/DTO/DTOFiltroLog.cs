@@ -22,13 +22,18 @@ namespace NovoIntegra.Documento.Domain.DTO
 
             if (!String.IsNullOrEmpty(IDCategoria))
             {
-                swhere.Append(" and IDCategoria = @IDCategoria ");
+                swhere.Append(" and Categoria = @IDCategoria ");
             }
 
             if (!String.IsNullOrEmpty(Lote))
             {
                 Lote = "%" + Lote + "%";
-                swhere.Append(" and Lote like @Lote ");
+                swhere.Append(" and Arquivo like @Lote ");
+            }
+
+            if (inderro)
+            {
+                swhere.Append(" and IndErro = 1 ");
             }
 
             return swhere.ToString();

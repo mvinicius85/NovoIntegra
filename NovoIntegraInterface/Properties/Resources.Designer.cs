@@ -63,6 +63,36 @@ namespace NovoIntegraInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bloggif_5a7dda2216567 {
+            get {
+                object obj = ResourceManager.GetObject("bloggif_5a7dda2216567", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bloggif_5a7dda9c38a0d {
+            get {
+                object obj = ResourceManager.GetObject("bloggif_5a7dda9c38a0d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancel2 {
+            get {
+                object obj = ResourceManager.GetObject("Cancel2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Document_New_Blue_24x24 {
             get {
                 object obj = ResourceManager.GetObject("Document New_Blue_24x24", resourceCulture);
@@ -76,6 +106,16 @@ namespace NovoIntegraInterface.Properties {
         internal static System.Drawing.Bitmap Plus_Blue_24x24 {
             get {
                 object obj = ResourceManager.GetObject("Plus_Blue_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x {
+            get {
+                object obj = ResourceManager.GetObject("x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

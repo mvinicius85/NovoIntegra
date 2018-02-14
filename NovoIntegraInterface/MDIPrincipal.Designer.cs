@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.parametrizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarParametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,7 @@
             this.chkServico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkServico.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkServico.BackColor = System.Drawing.Color.LimeGreen;
-            this.chkServico.Location = new System.Drawing.Point(614, 27);
+            this.chkServico.Location = new System.Drawing.Point(620, 27);
             this.chkServico.Margin = new System.Windows.Forms.Padding(0);
             this.chkServico.Name = "chkServico";
             this.chkServico.Size = new System.Drawing.Size(140, 70);
@@ -110,6 +111,7 @@
             this.ClientSize = new System.Drawing.Size(766, 364);
             this.Controls.Add(this.chkServico);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MDIPrincipal";

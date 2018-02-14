@@ -149,13 +149,22 @@ namespace NovoIntegraInterface.Documento
         {
             try
             {
+                Cursor = Cursors.WaitCursor;
+                if (acesso == ModoAcesso.Alteracao)
+                {
+                    _docappservice.ExcluirVinculos(cboCodCategoria.SelectedValue.ToString());
+                }
                 foreach (var item in atributos)
                 {
                     _docappservice.AdicionaVinculo(item);
                 }
+                Cursor = Cursors.Default;
+                MessageBox.Show("Gravação concluida.");
+                this.Close();
             }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show(ex.GetBaseException().Message);
             }
         }

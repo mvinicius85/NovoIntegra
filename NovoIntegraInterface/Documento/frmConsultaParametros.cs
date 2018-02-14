@@ -46,7 +46,7 @@ namespace NovoIntegraInterface.Documento
                     frmcadastro.MdiParent = this.MdiParent;
                     var conta = (AA_ParametrosViewModel)dgvFiltro.SelectedRows[0].DataBoundItem;
                     frmcadastro.cod_parametro = conta.Cod_Parametro;
-                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm();
+                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm(ModoAcesso.Consulta);
                     frmcadastro.Show();
                     Cursor = Cursors.Default;
                 }
@@ -70,14 +70,15 @@ namespace NovoIntegraInterface.Documento
                     frmcadastro.MdiParent = this.MdiParent;
                     var conta = (AA_ParametrosViewModel)dgvFiltro.SelectedRows[0].DataBoundItem;
                     frmcadastro.cod_parametro = conta.Cod_Parametro;
-                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm();
+                    frmcadastro.Load += (s, args) => frmcadastro.CarregaForm(ModoAcesso.Alteracao);
+                    frmcadastro.FormClosed += (s, args) => this.btnPesquisar_Click(sender, e);
                     frmcadastro.Show();
                     Cursor = Cursors.Default;
                 }
             }
             catch (Exception ex)
             {
-
+                Cursor = Cursors.Default;
                 MessageBox.Show(ex.GetBaseException().Message);
             }
         }

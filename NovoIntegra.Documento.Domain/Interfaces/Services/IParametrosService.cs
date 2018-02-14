@@ -13,5 +13,9 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
         string RetornaPath(string param);
         List<AA_Parametros> RetornaParametros(AA_Parametros filtro);
         AA_Parametros CarregaParametro(int cod_parametro);
+        void AtualizarParametro(AA_Parametros param);
+        bool StatusServico();
+        void LigarServico();
+        void DesligarServico();
     }
 }

@@ -224,5 +224,40 @@ namespace NovaIntegra.Application.AppForm
         {
             return Mapper.Map<List<AA_LogViewModel>>(_logservice.ListarLog(Mapper.Map<DTOFiltroLog>(filtro)));
         }
+
+        public void ExcluirVinculos(string codcategoria)
+        {
+            BeginDocumentoTransaction();
+            _vinculoservice.ExcluiVinculos(codcategoria);
+            CommitDocumento();
+        }
+
+        public void AtualizaParametro(AA_ParametrosViewModel param)
+        {
+            BeginDocumentoTransaction();
+            _parametrosserivce.AtualizarParametro(Mapper.Map<AA_Parametros>(param));
+            CommitDocumento();
+        }
+
+        public bool StatusServico()
+        {
+            return _parametrosserivce.StatusServico();
+        }
+
+        public void LigarServico()
+        {
+            BeginDocumentoTransaction();
+            _parametrosserivce.LigarServico();
+            CommitDocumento();
+            DisposeContexto();
+        }
+
+        public void DesligarServico()
+        {
+            BeginDocumentoTransaction();
+            _parametrosserivce.DesligarServico();
+            CommitDocumento();
+            DisposeContexto();
+        }
     }
 }

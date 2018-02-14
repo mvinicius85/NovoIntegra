@@ -10,5 +10,6 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Repository
 {
     public interface IVinculoRepository : IRepository<AA_Vinculo>
     {
+        void ExcluirVinculos(string codcategoria);
     }
 }

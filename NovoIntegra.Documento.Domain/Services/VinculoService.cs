@@ -23,6 +23,11 @@ namespace NovoIntegra.Documento.Domain.Services
             _vinculorepository.Adicionar(aA_Vinculo);
         }
 
+        public void ExcluiVinculos(string codcategoria)
+        {
+            _vinculorepository.ExcluirVinculos(codcategoria);
+        }
+
         public List<AA_Vinculo> RetornaAtributos(string idcategory)
         {
             return _vinculorepository.Buscar(x => x.IDCategory == idcategory).ToList();

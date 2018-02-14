@@ -26,5 +26,10 @@ namespace NovaIntegra.Application.Interfaces
         List<AA_LogViewModel> BuscarLog(FiltroLogViewModel filtro);
         List<ADATTRIBUTEViewModel> BuscarAtributos(string codcategoria);
         void AdicionaVinculo(AA_VinculoViewModel item);
+        void ExcluirVinculos(string codcategoria);
+        void AtualizaParametro(AA_ParametrosViewModel param);
+        bool StatusServico();
+        void LigarServico();
+        void DesligarServico();
     }
 }

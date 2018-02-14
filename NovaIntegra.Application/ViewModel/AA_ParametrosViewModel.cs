@@ -18,7 +18,13 @@ namespace NovaIntegra.Application.ViewModel
             NomeParametro = _nome;
             Descricao = _desc;
         }
-
+        public AA_ParametrosViewModel(int _codparam, string _nmparam, string _desc, string _valor)
+        {
+            Cod_Parametro = _codparam;
+            NomeParametro = _nmparam;
+            Descricao = _desc;
+            Valor = _valor;
+        }
 
         public int Cod_Parametro { get; set; }
         public string NomeParametro { get; set; }

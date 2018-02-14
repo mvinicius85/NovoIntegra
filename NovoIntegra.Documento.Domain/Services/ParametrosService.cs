@@ -18,9 +18,32 @@ namespace NovoIntegra.Documento.Domain.Services
             _parametrosrepository = parametrosrepository;
         }
 
+        public void AtualizarParametro(AA_Parametros param)
+        {
+            var oldparam = _parametrosrepository.ObterPorId(param.Cod_Parametro);
+            oldparam.Descricao = param.Descricao;
+            oldparam.NomeParametro = param.NomeParametro;
+            oldparam.Valor = param.Valor;
+            _parametrosrepository.Atualizar(oldparam);
+        }
+
         public AA_Parametros CarregaParametro(int cod_parametro)
         {
             return _parametrosrepository.ObterPorId(cod_parametro);
+        }
+
+        public void LigarServico()
+        {
+            var param = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            param.Valor = "1";
+            _parametrosrepository.Atualizar(param);
+        }
+
+        public void DesligarServico()
+        {
+            var param = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            param.Valor = "0";
+            _parametrosrepository.Atualizar(param);
         }
 
         public List<AA_Parametros> RetornaParametros(AA_Parametros filtro)
@@ -31,6 +54,16 @@ namespace NovoIntegra.Documento.Domain.Services
         public string RetornaPath(string param)
         {
             return _parametrosrepository.Buscar(x => x.NomeParametro == param).FirstOrDefault().Valor.ToString();
+        }
+
+        public bool StatusServico()
+        {
+            var xxx = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            if (xxx.Valor == "0")
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

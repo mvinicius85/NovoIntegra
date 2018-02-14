@@ -21,7 +21,7 @@ namespace NovoIntegra.Documento.Infra.Data.EntityConfig
 
             this.Property(t => t.Descricao)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(1000);
 
             this.Property(t => t.Valor)
                 .IsRequired()

@@ -34,6 +34,7 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chkServico = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,9 +83,24 @@
             // consultarLogToolStripMenuItem
             // 
             this.consultarLogToolStripMenuItem.Name = "consultarLogToolStripMenuItem";
-            this.consultarLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultarLogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.consultarLogToolStripMenuItem.Text = "Consultar Log";
             this.consultarLogToolStripMenuItem.Click += new System.EventHandler(this.consultarLogToolStripMenuItem_Click);
+            // 
+            // chkServico
+            // 
+            this.chkServico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkServico.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkServico.BackColor = System.Drawing.Color.LimeGreen;
+            this.chkServico.Location = new System.Drawing.Point(614, 27);
+            this.chkServico.Margin = new System.Windows.Forms.Padding(0);
+            this.chkServico.Name = "chkServico";
+            this.chkServico.Size = new System.Drawing.Size(140, 70);
+            this.chkServico.TabIndex = 3;
+            this.chkServico.Text = "SERVIÇO DESLIGADO";
+            this.chkServico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkServico.UseVisualStyleBackColor = false;
+            this.chkServico.Click += new System.EventHandler(this.chkServico_Click);
             // 
             // MDIPrincipal
             // 
@@ -92,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(766, 364);
+            this.Controls.Add(this.chkServico);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -114,5 +131,6 @@
         private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chkServico;
     }
 }

@@ -27,7 +27,7 @@ namespace NovoIntegraInterface.Log
         {
             try
             {
-                var filtro = new FiltroLogViewModel(dtpInicio.Value, dtpFim.Value,
+                var filtro = new FiltroLogViewModel(dtpInicio.Value.Date, dtpFim.Value,
                     cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked);
                 var log = _docappservice.BuscarLog(filtro);
                 dgvFiltro.DataSource = log.OrderBy(x => x.DtEvento).ToList();

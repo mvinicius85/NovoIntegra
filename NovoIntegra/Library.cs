@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace NovoIntegra
                 var sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\LogFile.txt", true);
                 sw.WriteLine(DateTime.Now.ToString() + ": " + ex.Source.ToString().Trim() + ": " + ex.Message.ToString().Trim());
                 sw.Flush();
-                sw.Close(); 
+                sw.Close();
             }
             catch (Exception)
             {
@@ -40,5 +41,20 @@ namespace NovoIntegra
                 throw;
             }
         }
+
+        public static void WriterLogEntry(string msg)
+        {
+            string source = "ServicoIntegracao";
+            string log = "Application";
+            if (!EventLog.SourceExists(source))
+            {
+                EventLog.CreateEventSource(source, log);
+            }
+            EventLog.WriteEntry(source, msg,
+                EventLogEntryType.Warning);
+        }
+
+        public static void WriterLogEntry(Exception ex)
+        { }
     }
 }

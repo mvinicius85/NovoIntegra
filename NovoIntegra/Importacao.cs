@@ -57,15 +57,24 @@ namespace NovoIntegra
                 var listfiles = dirimp.GetFiles("*.mdb", SearchOption.AllDirectories);
                 foreach (var item in listfiles)
                 {
-                    if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
+                    if (_docappservice.StatusServico())
                     {
-                        Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                        Library.WriterLogEntry("Importação iniciada");
+                        if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
+                        {
+                            Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                        }
+                        else
+                        {
+                            Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                        }
                     }
                     else
                     {
-                        Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                        Library.WriterLogEntry("Serviço desligado para importação.");
+                        return;
                     }
-
+                    
                 }
             }
             catch (Exception ex)

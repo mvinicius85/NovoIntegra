@@ -46,16 +46,17 @@ namespace NovoIntegra
 
         private void timer1_Tick(object sender, ElapsedEventArgs e)
         {
-            var teste = container.GetInstance<Importacao>();
-            string x = teste.TesteImportacao();
-            
-            Library.WriterLogError("teste ticking" + x);
+            var servico = container.GetInstance<Importacao>();
+
+            servico.Importar();
+
+        
         }
 
         protected override void OnStop()
         {
             timer1.Enabled = false;
-            Library.WriterLogError("teste service stop");
+            Library.WriterLogEntry("Serviço Finalizado Manualmente.");
         }
     }
 }

@@ -62,11 +62,13 @@ namespace NovoIntegra
                         Library.WriterLogEntry("Importação iniciada");
                         if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
                         {
-                            Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                            //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                            item.MoveTo(Path.Combine(pathsucess, item.Name));
                         }
                         else
                         {
-                            Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                            //Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                            item.MoveTo(Path.Combine(patherr, item.Name));
                         }
                     }
                     else

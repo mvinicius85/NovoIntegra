@@ -112,6 +112,13 @@ namespace NovaIntegra.Application.AppForm
                         throw new Exception();
                     }
 
+                    msg = "Não foi identificado o atributo Título do documento";
+                    var atribtitulo = atrib.FirstOrDefault(x => x.Ind_Titulo).NmCampoImagem.ToString();
+                    if (String.IsNullOrEmpty(atribtitulo)) 
+                    {
+                        throw new Exception();
+                    }
+
                     msg = "Erro ao inserir documento";
                     _dcdocumentservice.InsereDocumento(item, atrib, cddocument, cdassoc, cdrevision, cdcomp);
                     if (CommitDocumento() > 0)
@@ -126,11 +133,23 @@ namespace NovaIntegra.Application.AppForm
                             _dcdocumentservice.InsereImagem(path, item, cddocument, atrib);
                             CommitDocumento();
 
+                            msg = "Não foi localizado o endereço físico do documento";
+                            var endfisico = atrib.FirstOrDefault(x => x.ind_localfisico);
+                            if (endfisico != null)
+                            {
+                                BeginDocumentoTransaction();
+                                var cdcaixa = _dcdocumentservice.RetornaCaixa(item[endfisico.NmCampoImagem].ToString());
+                                _dcdocumentservice.InsereCaixa(cddocument, cdcaixa);
+                                CommitDocumento();
+                            }
+
                             msg = "Erro ao inserir log";
                             var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false);
                             BeginDocumentoTransaction();
                             _logservice.Adicionar(log);
                             CommitDocumento();
+
+
                         }
                        
                     } 

@@ -5,6 +5,27 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
 {
     public partial class DCDOCUMENTARCHIVAL
     {
+        public DCDOCUMENTARCHIVAL()
+        {
+
+        }
+
+        public DCDOCUMENTARCHIVAL(decimal _cddoc, decimal _cdphys, decimal _fgusest, decimal _fgstatphys,
+            decimal _cduserarcur, DateTime _dtarcur, DateTime _dtdlcur, decimal _fgactst, decimal _cdcurrec,
+            decimal _cdcompl, decimal _cdrev)
+        {
+            CDDOCUMENT = _cddoc;
+            CDPHYSFILECURRENT = _cdphys;
+            FGUSESTATUS = _fgusest;
+            FGSTATUSPHYSFILE = _fgstatphys;
+            CDUSERARCCURRENT = _cduserarcur;
+            DTARCCURRENT = _dtarcur;
+            DTDEADLINECURRENT = _dtdlcur;
+            FGACTIONSTATUS = _fgactst;
+            CDCURRENTRECEIPT = _cdcurrec;
+            CDCOMPLIENCERET = _cdcompl;
+            CDREVISION = _cdrev;
+        }
         public decimal CDDOCUMENT { get; set; }
         public Nullable<decimal> CDPHYSFILECURRENT { get; set; }
         public Nullable<decimal> CDPHYSFILEINTERMED { get; set; }

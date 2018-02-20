@@ -19,5 +19,7 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
         void InsereImagem(string path, DataRow linha, int cddocument, List<AA_Vinculo> atributos);
 
         void ExcluirArquivo(int cddocument, int cdrevision, int gnassoc, int gncomp);
+        decimal RetornaCaixa(string caixa);
+        void InsereCaixa(int cddocument, decimal cdcaixa);
     }
 }

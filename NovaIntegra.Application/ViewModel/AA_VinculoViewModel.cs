@@ -13,7 +13,7 @@ namespace NovaIntegra.Application.ViewModel
 
         }
         public AA_VinculoViewModel(string _idcateg, decimal _codatrib, string _nmcamp, 
-            bool _indt, int _codtpcamp,
+            bool _indt, int _codtpcamp, bool _indlocal,
             ADATTRIBUTEViewModel _atrib, AA_TipoCampoViewModel _tpcampo )
         {
             IDCategory = _idcateg;
@@ -23,6 +23,7 @@ namespace NovaIntegra.Application.ViewModel
             Cod_TipoCampo = _codtpcamp;
             ADATTRIBUTE = _atrib;
             AA_TipoCampo = _tpcampo;
+            ind_LocalFisico = _indlocal;
         }
         public int Cod_Vinculo { get; set; }
         public string IDCategory { get; set; }
@@ -30,6 +31,7 @@ namespace NovaIntegra.Application.ViewModel
         public string NmCampoImagem { get; set; }
         public bool Ind_Titulo { get; set; }
         public int Cod_TipoCampo { get; set; }
+        public bool ind_LocalFisico { get; set; }
         public virtual ADATTRIBUTEViewModel ADATTRIBUTE { get; set; }
         public string nmAtributo { get { return this.ADATTRIBUTE.NMATTRIBUTE; } }
         public virtual AA_TipoCampoViewModel AA_TipoCampo { get; set; }

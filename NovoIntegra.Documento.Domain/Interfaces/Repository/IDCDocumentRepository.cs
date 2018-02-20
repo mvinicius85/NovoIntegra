@@ -13,5 +13,6 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Repository
         int RetornaMax();
 
         int ExcluiDocumentos(int cddocument);
+        decimal RetornaCaixa(string rua, string coluna, string prateleira, string fileira, string caixa);
     }
 }

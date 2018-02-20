@@ -28,6 +28,7 @@ namespace NovoIntegra.Documento.Infra.Data.EntityConfig
             this.Property(t => t.NmCampoImagem).HasColumnName("NmCampoImagem");
             this.Property(t => t.Ind_Titulo).HasColumnName("Ind_Titulo");
             this.Property(t => t.Cod_TipoCampo).HasColumnName("Cod_TipoCampo");
+            this.Property(t => t.ind_localfisico).HasColumnName("ind_localfisico");
 
             // Relationships
             this.HasRequired(t => t.AA_TipoCampo)

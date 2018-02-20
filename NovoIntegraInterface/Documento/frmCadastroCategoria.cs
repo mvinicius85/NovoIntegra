@@ -64,6 +64,7 @@ namespace NovoIntegraInterface.Documento
             Support.DataGridView_ConfigCol(dgvAtributos, "NmCampoImagem", "Campo Imagem", 2, "", 0, DataGridViewAutoSizeColumnMode.Fill);
             Support.DataGridView_ConfigCol(dgvAtributos, "NmTipoCampo", "Tipo do Atributo", 3, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
             Support.DataGridView_ConfigCol(dgvAtributos, "Ind_Titulo", "Título", 4, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+            Support.DataGridView_ConfigCol(dgvAtributos, "ind_LocalFisico", "Local Fisico", 5, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
 
             if (acesso == ModoAcesso.Consulta)
             {
@@ -116,6 +117,7 @@ namespace NovoIntegraInterface.Documento
             cboTipoAtributo.SelectedIndex = 0;
             txtAtribImagem.Text = "";
             chkTitulo.Checked = false;
+            chkLocalFisico.Checked = false;
         }
 
         private void btnAdicionarVinculo_Click(object sender, EventArgs e)
@@ -126,7 +128,7 @@ namespace NovoIntegraInterface.Documento
                 return;
             }
             var vinculo = new AA_VinculoViewModel(cboCodCategoria.SelectedValue.ToString(), (decimal)cboAtribSeSuite.SelectedValue,
-                txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue,
+                txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue, chkLocalFisico.Checked,
                 (ADATTRIBUTEViewModel)cboAtribSeSuite.SelectedItem, (AA_TipoCampoViewModel)cboTipoAtributo.SelectedItem);
             atributos.Add(vinculo);
             dgvAtributos.DataSource = atributos.ToList();
@@ -142,6 +144,7 @@ namespace NovoIntegraInterface.Documento
             Support.DataGridView_ConfigCol(dgvAtributos, "NmCampoImagem", "Campo Imagem", 2, "", 0, DataGridViewAutoSizeColumnMode.Fill);
             Support.DataGridView_ConfigCol(dgvAtributos, "NmTipoCampo", "Tipo do Atributo", 3, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
             Support.DataGridView_ConfigCol(dgvAtributos, "Ind_Titulo", "Título", 4, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+            Support.DataGridView_ConfigCol(dgvAtributos, "ind_LocalFisico", "Local Físico", 5, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
 
         }
 
@@ -172,7 +175,7 @@ namespace NovoIntegraInterface.Documento
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             var retirar = new AA_VinculoViewModel(cboCodCategoria.SelectedValue.ToString(), (decimal)cboAtribSeSuite.SelectedValue,
-                txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue,
+                txtAtribImagem.Text, chkTitulo.Checked, (int)cboTipoAtributo.SelectedValue, chkLocalFisico.Checked,
                 (ADATTRIBUTEViewModel)cboAtribSeSuite.SelectedItem, (AA_TipoCampoViewModel)cboTipoAtributo.SelectedItem);
             var item = atributos.Find(x => x.CDAttribute_SE == retirar.CDAttribute_SE && x.Cod_TipoCampo == retirar.Cod_TipoCampo
                 && x.NmCampoImagem == retirar.NmCampoImagem);
@@ -192,6 +195,7 @@ namespace NovoIntegraInterface.Documento
                 cboAtribSeSuite.SelectedValue = categoria.CDAttribute_SE;
                 txtAtribImagem.Text = categoria.NmCampoImagem;
                 chkTitulo.Checked = categoria.Ind_Titulo;
+                chkLocalFisico.Checked = categoria.ind_LocalFisico;
             }
 
             if (acesso == ModoAcesso.Alteracao)
@@ -224,6 +228,11 @@ namespace NovoIntegraInterface.Documento
         }
 
         private void txtAtribImagem_TextChanged(object sender, EventArgs e)
+        {
+            DesativaExcluir();
+        }
+
+        private void chkLocalFisico_CheckedChanged(object sender, EventArgs e)
         {
             DesativaExcluir();
         }

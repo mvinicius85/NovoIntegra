@@ -58,11 +58,16 @@ namespace NovoIntegra.Documento.Domain.Services
             var gnassc = _gnassocservice.ExcluiRegistros(gnassoc);
         }
 
+        public void InsereCaixa(int cddocument, decimal cdcaixa)
+        {
+            var dcarchival = new DCDOCUMENTARCHIVAL(cddocument, cdcaixa, 3, 1, 1, DateTime.Now, DateTime.Now, 2,1, 1, 3);
+            _dcarchivalrepository.Adicionar(dcarchival);
+        }
+
         public void InsereDocumento(DataRow linha, List<AA_Vinculo> atributos, int cddocument, int cdassoc, int cdrevision, int cdcomp)
         {
             var dcdoc = new DCDOCUMENT(cddocument, 2, 1, 1);
             _dcdocumentrepository.Adicionar(dcdoc);
-
 
             var gnass = new GNASSOC(cdassoc, 99200024);
             _gnassocservice.Adiciona(gnass);
@@ -76,7 +81,7 @@ namespace NovoIntegra.Documento.Domain.Services
 
         }
 
-        public void InsereImagem(string path, DataRow linha, int cddocument,  List<AA_Vinculo> atributos)
+        public void InsereImagem(string path, DataRow linha, int cddocument, List<AA_Vinculo> atributos)
         {
             var idcateg = atributos.FirstOrDefault().IDCategory;
             var cdcategory = _dccategoryrepository.Buscar(x => x.IDCATEGORY == idcateg).FirstOrDefault().CDCATEGORY;
@@ -130,7 +135,15 @@ namespace NovoIntegra.Documento.Domain.Services
 
         }
 
-
+        public decimal RetornaCaixa(string caixa)
+        {
+            var rua = caixa.Substring(0, 3);
+            var col = caixa.Substring(4, 3);
+            var pra = caixa.Substring(8, 3);
+            var fil = caixa.Substring(12, 3);
+            var cxx = caixa.Substring(16, 4);
+            return _dcdocumentrepository.RetornaCaixa(rua, col, pra, fil, cxx);
+        }
 
         public int RetornaMax()
         {

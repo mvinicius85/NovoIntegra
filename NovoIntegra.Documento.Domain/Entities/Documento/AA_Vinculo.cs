@@ -11,6 +11,7 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
         public string NmCampoImagem { get; set; }
         public bool Ind_Titulo { get; set; }
         public int Cod_TipoCampo { get; set; }
+        public bool ind_localfisico { get; set; }
         public virtual AA_TipoCampo AA_TipoCampo { get; set; }
         public virtual ADATTRIBUTE ADATTRIBUTE { get; set; }
     }

@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovoIntegra", "NovoIntegra\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Setup", "4 - Setup", "{AE298C1B-D1E9-4B6F-A47D-430AA9A9344B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupNovoIntegra", "SetupNovoIntegra\SetupNovoIntegra.vdproj", "{06D46F38-9522-4C28-AE16-D524962E4474}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupNovoIntegraInterface", "SetupNovoIntegraInterface\SetupNovoIntegraInterface.vdproj", "{02C67FBA-EB51-4DB6-A45A-518E0C4D315A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,10 @@ Global
 		{BB1CBE9A-0A47-450A-954F-D6A51317B429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB1CBE9A-0A47-450A-954F-D6A51317B429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB1CBE9A-0A47-450A-954F-D6A51317B429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D46F38-9522-4C28-AE16-D524962E4474}.Debug|Any CPU.ActiveCfg = Debug
+		{06D46F38-9522-4C28-AE16-D524962E4474}.Release|Any CPU.ActiveCfg = Release
+		{02C67FBA-EB51-4DB6-A45A-518E0C4D315A}.Debug|Any CPU.ActiveCfg = Debug
+		{02C67FBA-EB51-4DB6-A45A-518E0C4D315A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +140,8 @@ Global
 		{EA8C516C-FDEB-45BE-9BA0-1DA957A7578F} = {08953BBC-5027-4605-BEA7-B49123AF09E1}
 		{31572931-77B8-4E2C-8BF1-C0C1EB80A359} = {08953BBC-5027-4605-BEA7-B49123AF09E1}
 		{BB1CBE9A-0A47-450A-954F-D6A51317B429} = {2BD4CE6E-78D9-4D60-9A92-C4EB792FEC5D}
+		{06D46F38-9522-4C28-AE16-D524962E4474} = {AE298C1B-D1E9-4B6F-A47D-430AA9A9344B}
+		{02C67FBA-EB51-4DB6-A45A-518E0C4D315A} = {AE298C1B-D1E9-4B6F-A47D-430AA9A9344B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90B969E5-70F4-434C-9F48-1B626DDA3B70}

@@ -1,4 +1,5 @@
-﻿using NovoIntegra.Documento.Infra.Data.Contexto;
+﻿using NovoIntegra.Core.Domain.Util;
+using NovoIntegra.Documento.Infra.Data.Contexto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,10 +33,10 @@ namespace NovoIntegraInterface
         static void Main()
         {
             Start();
-            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
+            container.GetInstance<SeSuiteContext>().ChangeConnection(StringCipher.Decrypt(ConfigurationManager.AppSettings["conn"],"0m3o"));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.GetInstance<Form1>());
+            Application.Run(Container.GetInstance<MDIPrincipal>());
         }
 
         private static void Start()

@@ -1,4 +1,5 @@
-﻿using NovoIntegra.Documento.Infra.Data.Contexto;
+﻿using NovoIntegra.Core.Domain.Util;
+using NovoIntegra.Documento.Infra.Data.Contexto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,7 +40,7 @@ namespace NovoIntegra
             NovoIntegra.Application.AutoMapper.AutoMapperConfig.RegisterMappings();
             container = new SimpleInjector.Container();
             Infra.CrossCutting.IoC.BootStrapper.RegisterServices(container);
-            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
+            container.GetInstance<SeSuiteContext>().ChangeConnection(StringCipher.Decrypt(ConfigurationManager.AppSettings["conn"], "0m3o"));
             timer1 = new Timer();
             this.timer1.Interval = 60000;
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);

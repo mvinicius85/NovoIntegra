@@ -179,6 +179,10 @@
       <Project>{ea8c516c-fdeb-45be-9ba0-1da957a7578f}</Project>
       <Name>NovoIntegra.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NovoIntegra.Core.Domain\NovoIntegra.Core.Domain.csproj">
+      <Project>{807CEB54-AB84-4679-8D70-8F039BE9D62E}</Project>
+      <Name>NovoIntegra.Core.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NovoIntegra.Documento.Infra.Data\NovoIntegra.Documento.Infra.Data.csproj">
       <Project>{A535DEC0-28EC-419F-8546-D8C00ED7869D}</Project>
       <Name>NovoIntegra.Documento.Infra.Data</Name>

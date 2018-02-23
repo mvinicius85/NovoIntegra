@@ -1,5 +1,6 @@
 ﻿using NovaIntegra.Application.Interfaces;
 using NovoIntegra;
+using NovoIntegra.Core.Domain.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,16 @@ namespace NovoIntegraInterface
         {
             var teste = container.GetInstance<Importacao>();
             teste.Importar();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           textBox3.Text = StringCipher.Encrypt(textBox1.Text, textBox2.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = StringCipher.Decrypt(textBox5.Text, textBox6.Text);
         }
     }
 }

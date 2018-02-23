@@ -35,7 +35,7 @@ namespace NovoIntegraInterface
             container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.GetInstance<MDIPrincipal>());
+            Application.Run(Container.GetInstance<Form1>());
         }
 
         private static void Start()

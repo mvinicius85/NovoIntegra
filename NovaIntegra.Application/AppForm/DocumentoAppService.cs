@@ -91,6 +91,12 @@ namespace NovaIntegra.Application.AppForm
                 msg = "Erro ao abrir o arquivo";
                 arquivomdb = this.AbreArquivo(pathfile);
 
+                msg = "Arquivo vazio";
+                if (arquivomdb.Rows.Count == 0)
+                {
+                    throw new Exception();
+                }
+
                 foreach (DataRow item in arquivomdb.Rows)
                 {
                     BeginDocumentoTransaction();

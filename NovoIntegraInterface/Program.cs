@@ -32,7 +32,7 @@ namespace NovoIntegraInterface
             Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.GetInstance<MDIPrincipal>());
+            Application.Run(Container.GetInstance<Form1>());
         }
 
         private static void Start()

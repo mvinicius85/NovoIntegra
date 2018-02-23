@@ -1,6 +1,8 @@
-﻿using System;
+﻿using NovoIntegra.Documento.Infra.Data.Contexto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +32,7 @@ namespace NovoIntegraInterface
         static void Main()
         {
             Start();
+            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(Container.GetInstance<MDIPrincipal>());

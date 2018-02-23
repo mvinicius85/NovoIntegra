@@ -1,6 +1,8 @@
-﻿using System;
+﻿using NovoIntegra.Documento.Infra.Data.Contexto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
@@ -37,11 +39,12 @@ namespace NovoIntegra
             NovoIntegra.Application.AutoMapper.AutoMapperConfig.RegisterMappings();
             container = new SimpleInjector.Container();
             Infra.CrossCutting.IoC.BootStrapper.RegisterServices(container);
+            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             timer1 = new Timer();
-            this.timer1.Interval = 120000;
+            this.timer1.Interval = 60000;
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);
             timer1.Enabled = true;
-            Library.WriterLogError("Teste windows service");
+            Library.WriterLogError("Serviço iniciado");
         }
 
         private void timer1_Tick(object sender, ElapsedEventArgs e)

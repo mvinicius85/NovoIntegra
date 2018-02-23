@@ -48,7 +48,7 @@ namespace NovoIntegra.Documento.Domain.Services
 
         public List<AA_Parametros> RetornaParametros(AA_Parametros filtro)
         {
-            return _parametrosrepository.Buscar(x => x.NomeParametro.Contains(filtro.NomeParametro) && x.Descricao.Contains(filtro.Descricao)).ToList();
+            return _parametrosrepository.Buscar(x => x.NomeParametro.Contains(filtro.NomeParametro) && x.Descricao.Contains(filtro.Descricao) && x.NomeParametro != "SERVICEON").ToList();
         }
 
         public string RetornaPath(string param)
@@ -58,8 +58,8 @@ namespace NovoIntegra.Documento.Domain.Services
 
         public bool StatusServico()
         {
-            var xxx = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
-            if (xxx.Valor == "0")
+            var status = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            if (status.Valor == "0")
             {
                 return false;
             }

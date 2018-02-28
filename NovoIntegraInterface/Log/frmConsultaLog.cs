@@ -15,6 +15,8 @@ namespace NovoIntegraInterface.Log
 {
     public partial class frmConsultaLog : Form
     {
+        int x;
+        int y;
         private readonly IDocumentoAppService _docappservice;
         public frmConsultaLog(IDocumentoAppService docappservice)
         {
@@ -27,6 +29,7 @@ namespace NovoIntegraInterface.Log
         {
             try
             {
+                Cursor = Cursors.WaitCursor;
                 var filtro = new FiltroLogViewModel(dtpInicio.Value.Date, dtpFim.Value,
                     cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked);
                 var log = _docappservice.BuscarLog(filtro);
@@ -40,10 +43,13 @@ namespace NovoIntegraInterface.Log
                 Support.DataGridView_ConfigCol(dgvFiltro, "Msg", "Msg. Erro", 4, "", 0, DataGridViewAutoSizeColumnMode.Fill);
                 Support.DataGridView_ConfigCol(dgvFiltro, "MsgErroSistema", "Msg. Interna", 5, "", 0, DataGridViewAutoSizeColumnMode.Fill);
                 Support.DataGridView_ConfigCol(dgvFiltro, "DtEvento", "DtEvento", 6, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
-                Support.DataGridView_ConfigCol(dgvFiltro, "IndErro", "Erro", 7, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
-                ;            }
+                Support.DataGridView_ConfigCol(dgvFiltro, "IdDocumentSE", "Documento SE", 7, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+                Support.DataGridView_ConfigCol(dgvFiltro, "IndErro", "Erro", 8, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+                Cursor = Cursors.Default;
+            }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show(ex.GetBaseException().Message);;
             }
         }
@@ -59,11 +65,13 @@ namespace NovoIntegraInterface.Log
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
             if (dgvFiltro.Rows.Count > 0)
             {
                 try
                 {
+                    
                     XcelApp.Application.Workbooks.Add(Type.Missing);
                     for (int i = 1; i < dgvFiltro.Columns.Count + 1; i++)
                     {
@@ -72,8 +80,10 @@ namespace NovoIntegraInterface.Log
                     //
                     for (int i = 0; i < dgvFiltro.Rows.Count; i++)
                     {
+                        x = i;
                         for (int j = 0; j < dgvFiltro.Columns.Count; j++)
                         {
+                            y = j;
                             XcelApp.Cells[i + 2, j + 1] = dgvFiltro.Rows[i].Cells[j].Value.ToString();
                         }
                     }
@@ -81,9 +91,11 @@ namespace NovoIntegraInterface.Log
                     XcelApp.Columns.AutoFit();
                     //
                     XcelApp.Visible = true;
+                    Cursor = Cursors.Default;
                 }
                 catch (Exception ex)
                 {
+                    Cursor = Cursors.Default;
                     MessageBox.Show("Erro : " + ex.Message);
                     XcelApp.Quit();
                 }

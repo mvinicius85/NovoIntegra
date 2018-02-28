@@ -12,5 +12,6 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
     {
         void Adicionar(AA_Log log);
         List<AA_Log> ListarLog(DTOFiltroLog filtro);
+        void Adicionar(List<AA_Log> listlog);
     }
 }

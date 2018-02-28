@@ -22,6 +22,14 @@ namespace NovoIntegra.Documento.Domain.Services
             _logrepository.Adicionar(log);
         }
 
+        public void Adicionar(List<AA_Log> listlog)
+        {
+            foreach (var item in listlog)
+            {
+                _logrepository.Adicionar(item);
+            }
+        }
+
         public List<AA_Log> ListarLog(DTOFiltroLog filtro)
         {
             return _logrepository.ListarLog(filtro);

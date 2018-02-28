@@ -70,13 +70,13 @@ namespace NovaIntegra.Application.AppForm
         }
         public bool InsereDocumento(string pathfile, string path, string file)
         {
+            var listlog = new List<AA_Log>();
             try
             {
                 msg = "";
                 lote = "";
                 documento = "";
                 idcateg = "";
-
                 var cddocument = _dcdocumentservice.RetornaMax();
                 var cdassoc = _gnassocservice.RetornaMax();
                 var cdrevision = _gnrevisionservice.RetornaMax();
@@ -149,11 +149,10 @@ namespace NovaIntegra.Application.AppForm
                                 CommitDocumento();
                             }
 
-                            msg = "Erro ao inserir log";
-                            var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false);
-                            BeginDocumentoTransaction();
-                            _logservice.Adicionar(log);
-                            CommitDocumento();
+
+                            var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false, idcateg + cddocument.ToString());
+                            listlog.Add(log);
+
 
 
                         }
@@ -162,6 +161,13 @@ namespace NovaIntegra.Application.AppForm
 
                 }
                 arquivomdb.Dispose();
+
+                msg = "Erro ao inserir log";
+                BeginDocumentoTransaction();
+                _logservice.Adicionar(listlog);
+                CommitDocumento();
+
+
                 return true;
 
             }
@@ -173,7 +179,7 @@ namespace NovaIntegra.Application.AppForm
                 BeginDocumentoTransaction();
                 _dcdocumentservice.ExcluirArquivo(cddocumentini, cdrevisionini, cdassocini, cdcompini);
                 CommitDocumento();
-                var log = new AA_Log(lote,documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true);
+                var log = new AA_Log(lote,documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true, "");
                 BeginDocumentoTransaction();
                 _logservice.Adicionar(log);
                 CommitDocumento();

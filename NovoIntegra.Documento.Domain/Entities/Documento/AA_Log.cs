@@ -9,7 +9,7 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
         {
 
         }
-        public AA_Log(string _arq, string _doc, string _cat, string _msg, string _errsis, DateTime _data, bool _inderr)
+        public AA_Log(string _arq, string _doc, string _cat, string _msg, string _errsis, DateTime _data, bool _inderr, string _iddoc)
         {
             Arquivo = _arq;
             Documento = _doc;
@@ -18,6 +18,7 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
             MsgErroSistema = _errsis;
             DtEvento = _data;
             IndErro = _inderr;
+            IdDocumentSE = _iddoc;
         }
         public int Cod_EntradaLog { get; set; }
         public string Arquivo { get; set; }
@@ -27,5 +28,6 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
         public string MsgErroSistema { get; set; }
         public System.DateTime DtEvento { get; set; }
         public bool IndErro { get; set; }
+        public string IdDocumentSE { get; set; }
     }
 }

@@ -16,5 +16,6 @@ namespace NovaIntegra.Application.ViewModel
         public string MsgErroSistema { get; set; }
         public System.DateTime DtEvento { get; set; }
         public bool IndErro { get; set; }
+        public string IdDocumentSE { get; set; }
     }
 }

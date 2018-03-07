@@ -33,7 +33,7 @@ namespace NovoIntegraInterface
         static void Main()
         {
             Start();
-            container.GetInstance<SeSuiteContext>().ChangeConnection(StringCipher.Decrypt(ConfigurationManager.AppSettings["conn"],"0m3o"));
+            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(Container.GetInstance<MDIPrincipal>());

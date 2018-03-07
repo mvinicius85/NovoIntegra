@@ -40,7 +40,7 @@ namespace NovoIntegra
             NovoIntegra.Application.AutoMapper.AutoMapperConfig.RegisterMappings();
             container = new SimpleInjector.Container();
             Infra.CrossCutting.IoC.BootStrapper.RegisterServices(container);
-            container.GetInstance<SeSuiteContext>().ChangeConnection(StringCipher.Decrypt(ConfigurationManager.AppSettings["conn"], "0m3o"));
+            container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             timer1 = new Timer();
             this.timer1.Interval = 60000;
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);

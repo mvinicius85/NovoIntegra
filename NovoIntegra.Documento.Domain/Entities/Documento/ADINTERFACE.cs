@@ -28,7 +28,6 @@ namespace NovoIntegra.Documento.Domain.Entities.Documento
 
         public decimal CDINTERFACE { get; set; }
         public Nullable<decimal> CDISOSYSTEM { get; set; }
-        public Nullable<decimal> CDSCHEDULE { get; set; }
         public Nullable<System.DateTime> DTEXECUTION { get; set; }
         public Nullable<decimal> FGIMPORT { get; set; }
         public Nullable<decimal> FGBLOBOPTION { get; set; }

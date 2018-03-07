@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NovoIntegra
+namespace NovoIntegra.Core.Domain.Util
+
 {
     public static class Library
     {

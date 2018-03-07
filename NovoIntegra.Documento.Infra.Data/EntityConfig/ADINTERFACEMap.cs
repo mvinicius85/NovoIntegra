@@ -244,7 +244,6 @@ namespace NovoIntegra.Documento.Infra.Data.EntityConfig
             this.ToTable("ADINTERFACE");
             this.Property(t => t.CDINTERFACE).HasColumnName("CDINTERFACE");
             this.Property(t => t.CDISOSYSTEM).HasColumnName("CDISOSYSTEM");
-            this.Property(t => t.CDSCHEDULE).HasColumnName("CDSCHEDULE");
             this.Property(t => t.DTEXECUTION).HasColumnName("DTEXECUTION");
             this.Property(t => t.FGIMPORT).HasColumnName("FGIMPORT");
             this.Property(t => t.FGBLOBOPTION).HasColumnName("FGBLOBOPTION");

@@ -1,4 +1,5 @@
 ﻿using NovaIntegra.Application.Interfaces;
+using NovoIntegra.Core.Domain.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +13,7 @@ namespace NovoIntegra
     {
         private readonly SimpleInjector.Container container;
         private readonly IDocumentoAppService _docappservice;
-
+        string text = "0";
         public Importacao(IDocumentoAppService docappservice)
         {
             _docappservice = docappservice;
@@ -30,8 +31,6 @@ namespace NovoIntegra
             // var doc = container.GetInstance<IDocumentoAppService>();
             try
             {
-
-
                 var pathimport = _docappservice.RetornaDiretorio("PATHIMPORT");
                 var pathsucess = _docappservice.RetornaDiretorio("PATHSUCCESS");
                 var patherr = _docappservice.RetornaDiretorio("PATHERR");
@@ -59,7 +58,9 @@ namespace NovoIntegra
                 {
                     if (_docappservice.StatusServico())
                     {
+
                         Library.WriterLogEntry("Importação iniciada");
+                        text = item.FullName + " |- " + item.DirectoryName + " -| " + item.Name;
                         if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
                         {
                             //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
@@ -82,7 +83,7 @@ namespace NovoIntegra
             catch (Exception ex)
             {
 
-                Library.WriterLogError(ex);
+                Library.WriterLogError(ex + " " + text);
             }
         }
 

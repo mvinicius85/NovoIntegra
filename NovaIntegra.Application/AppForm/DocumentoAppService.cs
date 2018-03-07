@@ -2,6 +2,7 @@
 using NovaIntegra.Application.Interfaces;
 using NovaIntegra.Application.ViewModel;
 using NovoIntegra.Core.Domain.Interfaces.Services;
+using NovoIntegra.Core.Domain.Util;
 using NovoIntegra.Documento.Domain.DTO;
 using NovoIntegra.Documento.Domain.Entities.Documento;
 using NovoIntegra.Documento.Domain.Interfaces.Services;
@@ -72,7 +73,8 @@ namespace NovaIntegra.Application.AppForm
         {
             var listlog = new List<AA_Log>();
             try
-            {
+            { 
+
                 msg = "";
                 lote = "";
                 documento = "";
@@ -173,6 +175,7 @@ namespace NovaIntegra.Application.AppForm
             }
             catch (Exception ex)
             {
+                Library.WriterLogEntry(msg + " " + ex.GetBaseException().Message);
                 arquivomdb.Dispose();
                 DisposeAdd();
                 DisposeContexto();

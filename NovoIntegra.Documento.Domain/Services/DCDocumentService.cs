@@ -49,8 +49,8 @@ namespace NovoIntegra.Documento.Domain.Services
         public void ExcluirArquivo(int cddocument, int cdrevision, int gnassoc, int cdcomp)
         {
             var file = _dcfilerepository.ExcluiRegistros(cddocument);
-            var rev = _dcdocrevrepository.ExcluiRegistros(cddocument);
             var attrib = _dcdocattribrepository.ExcluiRegistros(cddocument);
+            var rev = _dcdocrevrepository.ExcluiRegistros(cddocument);
             var docarc = _dcarchivalrepository.ExcluiRegistros(cddocument);
             var doc = _dcdocumentrepository.ExcluiDocumentos(cddocument);
             var gnrev = _gnrevisionservice.ExcluiRegistros(cdrevision);
@@ -86,7 +86,7 @@ namespace NovoIntegra.Documento.Domain.Services
             var idcateg = atributos.FirstOrDefault().IDCategory;
             var cdcategory = _dccategoryrepository.Buscar(x => x.IDCATEGORY == idcateg).FirstOrDefault().CDCATEGORY;
             var cdinterface = _adinterfacerepository.RetornaMax();
-            var arquivo = new ADINTERFACE(cdinterface + 1, 1, 73, 97, idcateg + cddocument.ToString(), "00", linha["IMAGEM"].ToString(), path + linha["IMAGEM"].ToString(), "0", idcateg);
+            var arquivo = new ADINTERFACE(cdinterface + 1, 1, 73, 97, idcateg + cddocument.ToString(), "00", linha["IMAGEM"].ToString(), path + "\\" + linha["IMAGEM"].ToString(), "0", idcateg);
             _adinterfacerepository.Adicionar(arquivo);
         }
 

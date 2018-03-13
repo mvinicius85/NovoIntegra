@@ -103,6 +103,16 @@ namespace NovoIntegraInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_open_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-open-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Plus_Blue_24x24 {
             get {
                 object obj = ResourceManager.GetObject("Plus_Blue_24x24", resourceCulture);

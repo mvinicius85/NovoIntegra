@@ -10,5 +10,7 @@ namespace NovoIntegra.Core.Domain.Interfaces.Services
     public interface IMdbFileService
     {
         DataTable RetornaArquivo(string path);
+        void AlterarArquivo(string fullName);
+        void UpdateArquivo(string fullName, string v);
     }
 }

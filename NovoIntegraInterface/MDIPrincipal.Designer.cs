@@ -35,6 +35,8 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chkServico = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +45,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.parametrizaçãoToolStripMenuItem,
-            this.logToolStripMenuItem});
+            this.logToolStripMenuItem,
+            this.manutençãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(766, 24);
@@ -87,6 +90,21 @@
             this.consultarLogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.consultarLogToolStripMenuItem.Text = "Consultar Log";
             this.consultarLogToolStripMenuItem.Click += new System.EventHandler(this.consultarLogToolStripMenuItem_Click);
+            // 
+            // manutençãoToolStripMenuItem
+            // 
+            this.manutençãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirCategoriaToolStripMenuItem});
+            this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.manutençãoToolStripMenuItem.Text = "Arquivos";
+            // 
+            // inserirCategoriaToolStripMenuItem
+            // 
+            this.inserirCategoriaToolStripMenuItem.Name = "inserirCategoriaToolStripMenuItem";
+            this.inserirCategoriaToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.inserirCategoriaToolStripMenuItem.Text = "Inserir Categoria";
+            this.inserirCategoriaToolStripMenuItem.Click += new System.EventHandler(this.inserirCategoriaToolStripMenuItem_Click);
             // 
             // chkServico
             // 
@@ -134,5 +152,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkServico;
+        private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inserirCategoriaToolStripMenuItem;
     }
 }

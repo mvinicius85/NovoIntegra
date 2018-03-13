@@ -23,7 +23,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
 
             var sql = "DELETE FROM DCDOCUMENT WHERE CDDOCUMENT > @cddocument";
 
-            var rows = con.Execute(sql, new { cddocument = cddocument });
+            var rows = con.Execute(sql, new { cddocument = cddocument }, null, 0, null);
 
             return rows;
         }

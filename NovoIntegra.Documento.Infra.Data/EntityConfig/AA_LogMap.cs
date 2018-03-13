@@ -17,7 +17,7 @@ namespace NovoIntegra.Documento.Infra.Data.EntityConfig
                 .HasMaxLength(50);
 
             this.Property(t => t.Documento)
-                .HasMaxLength(50);
+                .HasMaxLength(200);
 
             this.Property(t => t.Categoria)
                 .HasMaxLength(500);

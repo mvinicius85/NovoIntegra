@@ -3,6 +3,7 @@ using NovoIntegra.Documento.Infra.Data.EntityConfig;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace NovoIntegra.Documento.Infra.Data.Contexto
         public SeSuiteContext()
            : base("Data Source=192.168.1.32\\sqlexpress;Initial Catalog=SESUITE_COTIA;Persist Security Info=True;User ID=sa; Password=P@ssw0rd;MultipleActiveResultSets=True;App=NovoIntegra")
         {
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 0;
         }
 
         public DbSet<AA_Log> AA_Log { get; set; }

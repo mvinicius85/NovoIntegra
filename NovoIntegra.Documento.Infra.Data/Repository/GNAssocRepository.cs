@@ -23,7 +23,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
 
             var sql = "DELETE FROM GNASSOC WHERE CDASSOC > @cdassoc";
 
-            var rows = con.Execute(sql, new { cdassoc = cdassoc });
+            var rows = con.Execute(sql, new { cdassoc = cdassoc }, null, 0, null);
 
             return rows;
         }

@@ -23,7 +23,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
 
             var sql = "DELETE  FROM GNREVISION WHERE CDREVISION > @cdrevision";
 
-            var rows = con.Execute(sql, new { cdrevision = cdrevision });
+            var rows = con.Execute(sql, new { cdrevision = cdrevision }, null, 0, null);
 
             return rows;
         }

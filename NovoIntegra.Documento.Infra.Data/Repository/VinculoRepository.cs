@@ -24,7 +24,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
             var sql = "Delete from AA_Vinculo where IDCATEGORY = @codcategoria";
 
             //var max = con.Query<int>(sql).FirstOrDefault();
-            var teste = con.Execute(sql, new { codcategoria = codcategoria });
+            var teste = con.Execute(sql, new { codcategoria = codcategoria }, null, 0, null);
         }
     }
 }

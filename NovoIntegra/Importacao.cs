@@ -58,13 +58,19 @@ namespace NovoIntegra
                 {
                     if (_docappservice.StatusServico())
                     {
-
                         Library.WriterLogEntry("Importação iniciada");
-                        text = item.FullName + " |- " + item.DirectoryName + " -| " + item.Name;
-                        if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
+                        if (_docappservice.ValidarArquivo(item.FullName, item.DirectoryName, item.Name))
                         {
-                            //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
-                            item.MoveTo(Path.Combine(pathsucess, item.Name));
+                            if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
+                            {
+                                //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                                item.MoveTo(Path.Combine(pathsucess, item.Name));
+                            }
+                            else
+                            {
+                                //Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                                item.MoveTo(Path.Combine(patherr, item.Name));
+                            }
                         }
                         else
                         {

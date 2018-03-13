@@ -19,11 +19,11 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
 
         public int ExcluiRegistros(int cdcomp)
         {
-            var con = Db.Database.Connection;
+            var con = Db.Database.Connection;           
 
             var sql = "DELETE  FROM GNCOMPFILECONTCOPY WHERE CDCOMPLEXFILECONT > @cdcomp";
 
-            var rows = con.Execute(sql, new { cdcomp = cdcomp });
+            var rows = con.Execute(sql, new { cdcomp = cdcomp }, null,0,null);
 
             return rows;
         }

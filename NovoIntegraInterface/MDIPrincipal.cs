@@ -1,4 +1,5 @@
 ﻿using NovaIntegra.Application.Interfaces;
+using NovoIntegraInterface.Arquivos;
 using NovoIntegraInterface.Documento;
 using NovoIntegraInterface.Log;
 using NovoIntegraInterface.Suporte;
@@ -113,6 +114,19 @@ namespace NovoIntegraInterface
                 return;
             }
 
+        }
+
+        private void inserirCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Support.BuscaForm<frmAlteraMDBs>(); 
+            if (!form.Created)
+            {
+                form.MdiParent = this;
+                form.Show();
+                return;
+            }
+            form.BringToFront();
+            return;
         }
     }
 }

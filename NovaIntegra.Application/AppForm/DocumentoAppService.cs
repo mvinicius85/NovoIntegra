@@ -45,7 +45,7 @@ namespace NovaIntegra.Application.AppForm
             IVinculoService vinculoservice, IDCDocumentService dcdocumentservice, IGNAssocService gnassocservice,
             IGNRevisionService gnrevisionservice, IGNCompFileContCopyService gncompservice,
             ILogService logervice, IParametrosService parametrosserivce, ITipoCampoService tipocamposervice,
-            IADAttributeService adattributeservice, 
+            IADAttributeService adattributeservice,
             NovoIntegra.Documento.Infra.Data.Interfaces.IUnitOfWork uow) : base(uow)
         {
             _dccategoryservice = dccategoryservice;
@@ -73,7 +73,7 @@ namespace NovaIntegra.Application.AppForm
         {
             var listlog = new List<AA_Log>();
             try
-            { 
+            {
 
                 msg = "";
                 lote = "";
@@ -101,73 +101,18 @@ namespace NovaIntegra.Application.AppForm
 
                 foreach (DataRow item in arquivomdb.Rows)
                 {
-                    BeginDocumentoTransaction();
                     cddocument = cddocument + 1;
                     cdassoc = cdassoc + 1;
                     cdrevision = cdrevision + 1;
                     cdcomp = cdcomp + 1;
-
-                    msg = "Não foi encontrada a coluna com a categoria do documento";
-                    idcateg = item["IDCATEGORY"].ToString();
-
-                    msg = "O documento não foi identificado.";
-                    documento = item["IMAGEM"].ToString();
-
-                    msg = "Categoria informada não identificada no SE Suite";
-                    var atrib = _vinculoservice.RetornaAtributos(idcateg);
-                    if (atrib.Count.Equals(0))
-                    {
-                        throw new Exception();
-                    }
-
-                    msg = "Não foi identificado o atributo Título do documento";
-                    var atribtitulo = atrib.FirstOrDefault(x => x.Ind_Titulo).NmCampoImagem.ToString();
-                    if (String.IsNullOrEmpty(atribtitulo)) 
-                    {
-                        throw new Exception();
-                    }
-
-                    msg = "Erro ao inserir documento";
-                    _dcdocumentservice.InsereDocumento(item, atrib, cddocument, cdassoc, cdrevision, cdcomp);
-                    if (CommitDocumento() > 0)
-                    {
-                        msg = "Erro ao inserir atributos";
-                        BeginDocumentoTransaction();
-                        _dcdocumentservice.InsereRevision(item, atrib, cddocument, cdassoc, cdrevision, cdcomp, path);
-                        if (CommitDocumento() > 0)
-                        {
-                            msg = "Erro ao inserir imagem";
-                            BeginDocumentoTransaction();
-                            _dcdocumentservice.InsereImagem(path, item, cddocument, atrib);
-                            CommitDocumento();
-
-                            msg = "Não foi localizado o endereço físico do documento";
-                            var endfisico = atrib.FirstOrDefault(x => x.ind_localfisico);
-                            if (endfisico != null)
-                            {
-                                BeginDocumentoTransaction();
-                                var cdcaixa = _dcdocumentservice.RetornaCaixa(item[endfisico.NmCampoImagem].ToString());
-                                _dcdocumentservice.InsereCaixa(cddocument, cdcaixa);
-                                CommitDocumento();
-                            }
-
-
-                            var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false, idcateg + cddocument.ToString());
-                            listlog.Add(log);
-
-
-
-                        }
-                       
-                    } 
-
+                    GravaDocumento(cddocument, cdassoc, cdrevision, cdcomp, item, path);
                 }
                 arquivomdb.Dispose();
 
-                msg = "Erro ao inserir log";
-                BeginDocumentoTransaction();
-                _logservice.Adicionar(listlog);
-                CommitDocumento();
+                //msg = "Erro ao inserir log";
+                //BeginDocumentoTransaction();
+                //_logservice.Adicionar(listlog);
+                //CommitDocumento();
 
 
                 return true;
@@ -179,14 +124,94 @@ namespace NovaIntegra.Application.AppForm
                 arquivomdb.Dispose();
                 DisposeAdd();
                 DisposeContexto();
-                BeginDocumentoTransaction();
-                _dcdocumentservice.ExcluirArquivo(cddocumentini, cdrevisionini, cdassocini, cdcompini);
-                CommitDocumento();
-                var log = new AA_Log(lote,documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true, "");
+                Library.WriterLogError(ExcluiDocumentos());
+                var log = new AA_Log(lote, documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true, "");
                 BeginDocumentoTransaction();
                 _logservice.Adicionar(log);
                 CommitDocumento();
                 return false;
+            }
+
+        }
+
+        private void GravaDocumento(int cddocument, int cdassoc, int cdrevision, int cdcomp, DataRow item, string path)
+        {
+            try
+            {
+                BeginDocumentoTransaction();
+                msg = "Não foi encontrada a coluna com a categoria do documento";
+                idcateg = item["IDCATEGORY"].ToString();
+
+                msg = "O documento não foi identificado.";
+                documento = item["IMAGEM"].ToString();
+
+                msg = "Categoria informada não identificada no SE Suite";
+                var atrib = _vinculoservice.RetornaAtributos(idcateg);
+                if (atrib.Count.Equals(0))
+                {
+                    throw new Exception();
+                }
+
+                msg = "Não foi identificado o atributo Título do documento";
+                var atribtitulo = atrib.FirstOrDefault(x => x.Ind_Titulo).NmCampoImagem.ToString();
+                if (String.IsNullOrEmpty(atribtitulo))
+                {
+                    throw new Exception();
+                }
+
+                msg = "Erro ao inserir documento";
+                _dcdocumentservice.InsereDocumento(item, atrib, cddocument, cdassoc, cdrevision, cdcomp);
+                if (CommitDocumento() > 0)
+                {
+                    msg = "Erro ao inserir atributos";
+                    BeginDocumentoTransaction();
+                    _dcdocumentservice.InsereRevision(item, atrib, cddocument, cdassoc, cdrevision, cdcomp, path);
+                    if (CommitDocumento() > 0)
+                    {
+                        msg = "Erro ao inserir imagem";
+                        BeginDocumentoTransaction();
+                        _dcdocumentservice.InsereImagem(path, item, cddocument, atrib);
+                        CommitDocumento();
+
+                        msg = "Não foi localizado o endereço físico do documento";
+                        var endfisico = atrib.FirstOrDefault(x => x.ind_localfisico);
+                        if (endfisico != null)
+                        {
+                            BeginDocumentoTransaction();
+                            var cdcaixa = _dcdocumentservice.RetornaCaixa(item[endfisico.NmCampoImagem].ToString());
+                            _dcdocumentservice.InsereCaixa(cddocument, cdcaixa);
+                            CommitDocumento();
+                        }
+                    }
+
+                }
+                var log = new AA_Log(lote, documento, idcateg, "Documento inserido com sucesso.", "", DateTime.Now, false, idcateg + cddocument.ToString());
+                BeginDocumentoTransaction();
+                _logservice.Adicionar(log);
+                CommitDocumento();
+            }
+            catch (Exception ex)
+            {
+                var log = new AA_Log(lote, documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true, "");
+                BeginDocumentoTransaction();
+                _logservice.Adicionar(log);
+                CommitDocumento();
+            }
+
+        }
+
+        private string ExcluiDocumentos()
+        {
+            try
+            {
+                BeginDocumentoTransaction();
+                _dcdocumentservice.ExcluirArquivo(cddocumentini, cdrevisionini, cdassocini, cdcompini);
+                CommitDocumento();
+                return "Documentos excluidos com sucesso";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
             }
 
         }
@@ -292,6 +317,110 @@ namespace NovaIntegra.Application.AppForm
             _parametrosserivce.DesligarServico();
             CommitDocumento();
             DisposeContexto();
+        }
+
+        public bool ValidarArquivo(string pathfile, string path, string file)
+        {
+            try
+            {
+                msg = "";
+                lote = "";
+                documento = "";
+                idcateg = "";
+                var cddocument = _dcdocumentservice.RetornaMax();
+                var cdassoc = _gnassocservice.RetornaMax();
+                var cdrevision = _gnrevisionservice.RetornaMax();
+                var cdcomp = _gncompservice.RetornaMax();
+
+                cddocumentini = cddocument;
+                cdassocini = cdassoc;
+                cdrevisionini = cdrevision;
+                cdcompini = cdcomp;
+                lote = file;
+
+                msg = "Erro ao abrir o arquivo";
+                arquivomdb = this.AbreArquivo(pathfile);
+
+                msg = "Arquivo vazio";
+                if (arquivomdb.Rows.Count == 0)
+                {
+                    throw new Exception();
+                }
+                foreach (DataRow item in arquivomdb.Rows)
+                {
+                    msg = "Não foi encontrada a coluna com a categoria do documento";
+                    idcateg = item["IDCATEGORY"].ToString();
+
+                    msg = "O documento não foi identificado.";
+                    documento = item["IMAGEM"].ToString();
+
+                    msg = "Categoria informada não identificada no SE Suite";
+                    var atrib = _vinculoservice.RetornaAtributos(idcateg);
+                    if (atrib.Count.Equals(0))
+                    {
+                        throw new Exception();
+                    }
+                    foreach (var atributo in atrib.Where(x => x.Cod_TipoCampo == 4).ToList())
+                    {
+                        msg = $"Atributo {atributo.NmCampoImagem} não esta num formato de data válido";
+                        var dat1 = Convert.ToDateTime(item[atributo.NmCampoImagem].ToString());
+                        if (dat1.Year < DateTime.Now.Year - 50 || dat1.Year > DateTime.Now.Year + 50)
+                        {
+                            throw new Exception();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Library.WriterLogEntry(msg + " " + ex.GetBaseException().Message);
+                arquivomdb.Dispose();
+                DisposeAdd();
+                DisposeContexto();
+                var log = new AA_Log(lote, documento, idcateg, msg, ex.GetBaseException().Message.ToString(), DateTime.Now, true, "");
+                BeginDocumentoTransaction();
+                _logservice.Adicionar(log);
+                CommitDocumento();
+                return false;
+            }
+        }
+
+        public bool AlteraArquivo(string fullName)
+        {
+            try
+            {
+                _mdbservice.AlterarArquivo(fullName);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        public bool UpdateArquivo(string fullName, string v)
+        {
+            try
+            {
+                _mdbservice.UpdateArquivo(fullName, v);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ValidaMDB(string fullName)
+        {
+            var dt = _mdbservice.RetornaArquivo(fullName);
+            if (dt.Columns["IDCATEGORY"] == null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

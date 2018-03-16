@@ -17,5 +17,7 @@ namespace NovoIntegra.Documento.Domain.Interfaces.Services
         bool StatusServico();
         void LigarServico();
         void DesligarServico();
+        bool ServicoUso();
+        void AtualizarServico(string st);
     }
 }

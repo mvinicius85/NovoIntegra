@@ -65,5 +65,22 @@ namespace NovoIntegra.Documento.Domain.Services
             }
             return true;
         }
+
+        public bool ServicoUso()
+        {
+            var status = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            if (status.Valor == "2")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void AtualizarServico(string st)
+        {
+            var param = _parametrosrepository.Buscar(x => x.NomeParametro == "SERVICEON").FirstOrDefault();
+            param.Valor = st;
+            _parametrosrepository.Atualizar(param);
+        }
     }
 }

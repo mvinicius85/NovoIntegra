@@ -31,6 +31,18 @@ namespace NovoIntegra
             // var doc = container.GetInstance<IDocumentoAppService>();
             try
             {
+                if (_docappservice.ServicoUso())
+                {
+                    Library.WriterLogEntry("Serviço ocupado");
+                    Library.WriterLogError("Servico ocupado");
+                    return;
+                }
+                if (!_docappservice.StatusServico())
+                {
+                    Library.WriterLogEntry("Serviço desligado");
+                    Library.WriterLogError("Servico desligado");
+                    return;
+                }
                 var pathimport = _docappservice.RetornaDiretorio("PATHIMPORT");
                 var pathsucess = _docappservice.RetornaDiretorio("PATHSUCCESS");
                 var patherr = _docappservice.RetornaDiretorio("PATHERR");
@@ -53,24 +65,18 @@ namespace NovoIntegra
                     Library.WriterLogError("Diretório de lotes com erro não encontrado.");
                     return;
                 }
+                _docappservice.AtualizaStatus("2");
                 var listfiles = dirimp.GetFiles("*.mdb", SearchOption.AllDirectories);
-                foreach (var item in listfiles)
+                foreach (var item in listfiles.ToList())
                 {
-                    if (_docappservice.StatusServico())
+
+                    Library.WriterLogEntry("Importação iniciada");
+                    if (_docappservice.ValidarArquivo(item.FullName, item.DirectoryName, item.Name))
                     {
-                        Library.WriterLogEntry("Importação iniciada");
-                        if (_docappservice.ValidarArquivo(item.FullName, item.DirectoryName, item.Name))
+                        if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
                         {
-                            if (_docappservice.InsereDocumento(item.FullName, item.DirectoryName, item.Name))
-                            {
-                                //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
-                                item.MoveTo(Path.Combine(pathsucess, item.Name));
-                            }
-                            else
-                            {
-                                //Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
-                                item.MoveTo(Path.Combine(patherr, item.Name));
-                            }
+                            //Directory.Move(item.DirectoryName, Path.Combine(pathsucess, item.Name.Substring(0, item.Name.Length - 4)));
+                            item.MoveTo(Path.Combine(pathsucess, item.Name));
                         }
                         else
                         {
@@ -80,15 +86,17 @@ namespace NovoIntegra
                     }
                     else
                     {
-                        Library.WriterLogEntry("Serviço desligado para importação.");
-                        return;
+                        //Directory.Move(item.DirectoryName, Path.Combine(patherr, item.Name.Substring(0, item.Name.Length - 4)));
+                        item.MoveTo(Path.Combine(patherr, item.Name));
                     }
-                    
+
+
                 }
+                _docappservice.AtualizaStatus("1");
             }
             catch (Exception ex)
             {
-
+                _docappservice.AtualizaStatus("0");
                 Library.WriterLogError(ex + " " + text);
             }
         }

@@ -104,7 +104,7 @@ namespace NovoIntegra.Documento.Domain.Services
             var dcfl = new DCFILE(cdcomp, cddocument, cdrevision);
             _dcfilerepository.Adicionar(dcfl);
 
-            foreach (var atrib in atributos)
+            foreach (var atrib in atributos.ToList())
             {
                 var tpatrib = _tipocamporepository.ObterPorId(atrib.Cod_TipoCampo).Descricao;
                 switch (tpatrib.ToUpper())

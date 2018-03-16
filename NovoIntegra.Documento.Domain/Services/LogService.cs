@@ -24,7 +24,7 @@ namespace NovoIntegra.Documento.Domain.Services
 
         public void Adicionar(List<AA_Log> listlog)
         {
-            foreach (var item in listlog)
+            foreach (var item in listlog.ToList())
             {
                 _logrepository.Adicionar(item);
             }

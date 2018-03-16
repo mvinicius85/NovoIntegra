@@ -35,5 +35,7 @@ namespace NovaIntegra.Application.Interfaces
         bool AlteraArquivo(string fullName);
         bool UpdateArquivo(string fullName, string v);
         bool ValidaMDB(string fullName);
+        bool ServicoUso();
+        void AtualizaStatus(string v);
     }
 }

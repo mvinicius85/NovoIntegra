@@ -42,7 +42,7 @@ namespace NovoIntegra
             Infra.CrossCutting.IoC.BootStrapper.RegisterServices(container);
             container.GetInstance<SeSuiteContext>().ChangeConnection(ConfigurationManager.AppSettings["conn"]);
             timer1 = new Timer();
-            this.timer1.Interval = 60000;
+            this.timer1.Interval = 90000;
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);
             timer1.Enabled = true;
             Library.WriterLogError("Serviço iniciado");

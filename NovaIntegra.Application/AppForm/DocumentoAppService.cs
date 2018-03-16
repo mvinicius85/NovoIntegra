@@ -422,5 +422,18 @@ namespace NovaIntegra.Application.AppForm
             }
             return false;
         }
+
+        public bool ServicoUso()
+        {
+            return _parametrosserivce.ServicoUso();
+        }
+
+        public void AtualizaStatus(string st)
+        {
+            BeginDocumentoTransaction();
+            _parametrosserivce.AtualizarServico(st);
+            CommitDocumento();
+            DisposeContexto();
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace NovoIntegraInterface.Arquivos
             {
                 var dirimp = new DirectoryInfo(txtDiretorio.Text);
                 var listfiles = dirimp.GetFiles("*.mdb", SearchOption.AllDirectories);
-                foreach (var item in listfiles)
+                foreach (var item in listfiles.ToList())
                 {
                     var nomearquivo = item.FullName;
                     if (_docappservice.ValidaMDB(item.FullName))

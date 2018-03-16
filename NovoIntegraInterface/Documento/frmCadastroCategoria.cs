@@ -157,7 +157,7 @@ namespace NovoIntegraInterface.Documento
                 {
                     _docappservice.ExcluirVinculos(cboCodCategoria.SelectedValue.ToString());
                 }
-                foreach (var item in atributos)
+                foreach (var item in atributos.ToList())
                 {
                     _docappservice.AdicionaVinculo(item);
                 }

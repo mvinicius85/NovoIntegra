@@ -31,7 +31,7 @@ namespace NovoIntegraInterface.Log
             {
                 Cursor = Cursors.WaitCursor;
                 var filtro = new FiltroLogViewModel(dtpInicio.Value.Date, dtpFim.Value,
-                    cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked);
+                    cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked, txtIdDocumento.Text);
                 var log = _docappservice.BuscarLog(filtro);
                 dgvFiltro.DataSource = log.OrderBy(x => x.DtEvento).ToList();
 
@@ -45,6 +45,8 @@ namespace NovoIntegraInterface.Log
                 Support.DataGridView_ConfigCol(dgvFiltro, "DtEvento", "DtEvento", 6, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
                 Support.DataGridView_ConfigCol(dgvFiltro, "IdDocumentSE", "Documento SE", 7, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
                 Support.DataGridView_ConfigCol(dgvFiltro, "IndErro", "Erro", 8, "", 0, DataGridViewAutoSizeColumnMode.DisplayedCells);
+
+                lblContador.Text = $"Quantidade: {log.Count}";
                 Cursor = Cursors.Default;
             }
             catch (Exception ex)

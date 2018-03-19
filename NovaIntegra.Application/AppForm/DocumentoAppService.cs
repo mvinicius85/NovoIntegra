@@ -364,7 +364,7 @@ namespace NovaIntegra.Application.AppForm
                     {
                         msg = $"Atributo {atributo.NmCampoImagem} não esta num formato de data válido";
                         var dat1 = Convert.ToDateTime(item[atributo.NmCampoImagem].ToString());
-                        if (dat1.Year < DateTime.Now.Year - 50 || dat1.Year > DateTime.Now.Year + 50)
+                        if (dat1.Year < DateTime.Now.Year - 300 || dat1.Year > DateTime.Now.Year + 300)
                         {
                             throw new Exception();
                         }

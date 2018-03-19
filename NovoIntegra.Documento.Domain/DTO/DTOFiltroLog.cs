@@ -13,10 +13,16 @@ namespace NovoIntegra.Documento.Domain.DTO
         public string IDCategoria { get; set; }
         public string Lote { get; set; }
         public bool inderro { get; set; }
+        public string IdDocumento { get; set; }
 
         public string SWhere()
         {
             StringBuilder swhere = new StringBuilder();
+
+            if (!String.IsNullOrEmpty(IdDocumento))
+            {
+                return "IdDocumentSE = @IdDocumento ";
+            }
 
             swhere.Append(" dtevento between @DtInicio  and @DtFim ");
 

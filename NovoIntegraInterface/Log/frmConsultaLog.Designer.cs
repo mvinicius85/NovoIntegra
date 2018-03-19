@@ -46,6 +46,9 @@
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblContador = new System.Windows.Forms.Label();
+            this.txtIdDocumento = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).BeginInit();
             this.tlsVendasPesquisa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -112,6 +115,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtIdDocumento);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.txtLote);
             this.groupBox1.Controls.Add(this.label4);
@@ -143,7 +148,7 @@
             // 
             // txtLote
             // 
-            this.txtLote.Location = new System.Drawing.Point(246, 46);
+            this.txtLote.Location = new System.Drawing.Point(278, 46);
             this.txtLote.Name = "txtLote";
             this.txtLote.Size = new System.Drawing.Size(268, 20);
             this.txtLote.TabIndex = 5;
@@ -152,7 +157,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(209, 49);
+            this.label4.Location = new System.Drawing.Point(241, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 4;
@@ -162,7 +167,7 @@
             // 
             this.chkErro.AutoSize = true;
             this.chkErro.ForeColor = System.Drawing.Color.Black;
-            this.chkErro.Location = new System.Drawing.Point(469, 72);
+            this.chkErro.Location = new System.Drawing.Point(501, 72);
             this.chkErro.Name = "chkErro";
             this.chkErro.Size = new System.Drawing.Size(45, 17);
             this.chkErro.TabIndex = 3;
@@ -173,7 +178,7 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(246, 16);
+            this.cboCategoria.Location = new System.Drawing.Point(278, 16);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(268, 21);
             this.cboCategoria.TabIndex = 2;
@@ -182,7 +187,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(185, 19);
+            this.label3.Location = new System.Drawing.Point(217, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 1;
@@ -237,11 +242,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "De:";
             // 
+            // lblContador
+            // 
+            this.lblContador.AutoSize = true;
+            this.lblContador.Location = new System.Drawing.Point(597, 337);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(0, 13);
+            this.lblContador.TabIndex = 152;
+            this.lblContador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtIdDocumento
+            // 
+            this.txtIdDocumento.Location = new System.Drawing.Point(278, 72);
+            this.txtIdDocumento.Name = "txtIdDocumento";
+            this.txtIdDocumento.Size = new System.Drawing.Size(217, 20);
+            this.txtIdDocumento.TabIndex = 73;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(180, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Id do Documento:";
+            // 
             // frmConsultaLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 359);
+            this.Controls.Add(this.lblContador);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tlsVendasPesquisa);
             this.Controls.Add(this.lblResultPesquisa);
@@ -281,5 +313,8 @@
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblContador;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtIdDocumento;
     }
 }

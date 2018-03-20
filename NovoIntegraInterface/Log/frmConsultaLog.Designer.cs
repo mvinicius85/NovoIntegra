@@ -35,6 +35,8 @@
             this.lblToolBar = new System.Windows.Forms.ToolStripLabel();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtIdDocumento = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtLote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblContador = new System.Windows.Forms.Label();
-            this.txtIdDocumento = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).BeginInit();
             this.tlsVendasPesquisa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,6 +61,9 @@
             this.dgvFiltro.AllowUserToDeleteRows = false;
             this.dgvFiltro.AllowUserToResizeColumns = false;
             this.dgvFiltro.AllowUserToResizeRows = false;
+            this.dgvFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFiltro.BackgroundColor = System.Drawing.Color.White;
             this.dgvFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiltro.Location = new System.Drawing.Point(7, 124);
@@ -72,6 +75,8 @@
             // 
             // lblResultPesquisa
             // 
+            this.lblResultPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblResultPesquisa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblResultPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultPesquisa.ForeColor = System.Drawing.Color.White;
@@ -131,6 +136,23 @@
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro Log";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(180, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Id do Documento:";
+            // 
+            // txtIdDocumento
+            // 
+            this.txtIdDocumento.Location = new System.Drawing.Point(278, 72);
+            this.txtIdDocumento.Name = "txtIdDocumento";
+            this.txtIdDocumento.Size = new System.Drawing.Size(217, 20);
+            this.txtIdDocumento.TabIndex = 73;
             // 
             // btnPesquisar
             // 
@@ -244,29 +266,13 @@
             // 
             // lblContador
             // 
+            this.lblContador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContador.AutoSize = true;
             this.lblContador.Location = new System.Drawing.Point(597, 337);
             this.lblContador.Name = "lblContador";
             this.lblContador.Size = new System.Drawing.Size(0, 13);
             this.lblContador.TabIndex = 152;
             this.lblContador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtIdDocumento
-            // 
-            this.txtIdDocumento.Location = new System.Drawing.Point(278, 72);
-            this.txtIdDocumento.Name = "txtIdDocumento";
-            this.txtIdDocumento.Size = new System.Drawing.Size(217, 20);
-            this.txtIdDocumento.TabIndex = 73;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(180, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "Id do Documento:";
             // 
             // frmConsultaLog
             // 
@@ -278,8 +284,8 @@
             this.Controls.Add(this.tlsVendasPesquisa);
             this.Controls.Add(this.lblResultPesquisa);
             this.Controls.Add(this.dgvFiltro);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(749, 398);
             this.Name = "frmConsultaLog";
             this.Text = "Consulta Log";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).EndInit();

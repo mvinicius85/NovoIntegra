@@ -40,11 +40,11 @@
             this.dgvFiltro = new System.Windows.Forms.DataGridView();
             this.lblResultPesquisa = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCodCategoria = new System.Windows.Forms.TextBox();
-            this.txtDescCategoria = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtDescCategoria = new System.Windows.Forms.TextBox();
+            this.txtCodCategoria = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tlsVendasPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -140,6 +140,9 @@
             this.dgvFiltro.AllowUserToDeleteRows = false;
             this.dgvFiltro.AllowUserToResizeColumns = false;
             this.dgvFiltro.AllowUserToResizeRows = false;
+            this.dgvFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFiltro.BackgroundColor = System.Drawing.Color.White;
             this.dgvFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiltro.Location = new System.Drawing.Point(6, 106);
@@ -151,6 +154,8 @@
             // 
             // lblResultPesquisa
             // 
+            this.lblResultPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblResultPesquisa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblResultPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultPesquisa.ForeColor = System.Drawing.Color.White;
@@ -177,40 +182,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Categoria";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(21, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Descrição:";
-            // 
-            // txtCodCategoria
-            // 
-            this.txtCodCategoria.Location = new System.Drawing.Point(70, 24);
-            this.txtCodCategoria.Name = "txtCodCategoria";
-            this.txtCodCategoria.Size = new System.Drawing.Size(159, 20);
-            this.txtCodCategoria.TabIndex = 2;
-            // 
-            // txtDescCategoria
-            // 
-            this.txtDescCategoria.Location = new System.Drawing.Point(70, 50);
-            this.txtDescCategoria.Name = "txtDescCategoria";
-            this.txtDescCategoria.Size = new System.Drawing.Size(273, 20);
-            this.txtDescCategoria.TabIndex = 3;
-            // 
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +196,40 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
+            // txtDescCategoria
+            // 
+            this.txtDescCategoria.Location = new System.Drawing.Point(70, 50);
+            this.txtDescCategoria.Name = "txtDescCategoria";
+            this.txtDescCategoria.Size = new System.Drawing.Size(273, 20);
+            this.txtDescCategoria.TabIndex = 3;
+            // 
+            // txtCodCategoria
+            // 
+            this.txtCodCategoria.Location = new System.Drawing.Point(70, 24);
+            this.txtCodCategoria.Name = "txtCodCategoria";
+            this.txtCodCategoria.Size = new System.Drawing.Size(159, 20);
+            this.txtCodCategoria.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Descrição:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(21, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código:";
+            // 
             // frmConsultaCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +239,7 @@
             this.Controls.Add(this.lblResultPesquisa);
             this.Controls.Add(this.dgvFiltro);
             this.Controls.Add(this.tlsVendasPesquisa);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(469, 346);
             this.Name = "frmConsultaCategoria";
             this.Text = "Consulta Categoria";
             this.tlsVendasPesquisa.ResumeLayout(false);

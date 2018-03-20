@@ -36,6 +36,7 @@
             this.lblToolBar = new System.Windows.Forms.ToolStripLabel();
             this.dgvAtributos = new System.Windows.Forms.DataGridView();
             this.gpbAtributo = new System.Windows.Forms.GroupBox();
+            this.chkLocalFisico = new System.Windows.Forms.CheckBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAdicionarVinculo = new System.Windows.Forms.Button();
             this.btnLimparAtributos = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.cboCodCategoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkLocalFisico = new System.Windows.Forms.CheckBox();
             this.tlsVendasPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtributos)).BeginInit();
             this.gpbAtributo.SuspendLayout();
@@ -110,6 +110,9 @@
             // 
             this.dgvAtributos.AllowUserToResizeColumns = false;
             this.dgvAtributos.AllowUserToResizeRows = false;
+            this.dgvAtributos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAtributos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAtributos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtributos.Location = new System.Drawing.Point(5, 160);
@@ -138,6 +141,17 @@
             this.gpbAtributo.TabIndex = 9;
             this.gpbAtributo.TabStop = false;
             this.gpbAtributo.Text = "Atributo";
+            // 
+            // chkLocalFisico
+            // 
+            this.chkLocalFisico.AutoSize = true;
+            this.chkLocalFisico.Location = new System.Drawing.Point(407, 51);
+            this.chkLocalFisico.Name = "chkLocalFisico";
+            this.chkLocalFisico.Size = new System.Drawing.Size(84, 17);
+            this.chkLocalFisico.TabIndex = 11;
+            this.chkLocalFisico.Text = "Local Físico";
+            this.chkLocalFisico.UseVisualStyleBackColor = true;
+            this.chkLocalFisico.CheckedChanged += new System.EventHandler(this.chkLocalFisico_CheckedChanged);
             // 
             // btnExcluir
             // 
@@ -288,17 +302,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código:";
             // 
-            // chkLocalFisico
-            // 
-            this.chkLocalFisico.AutoSize = true;
-            this.chkLocalFisico.Location = new System.Drawing.Point(407, 51);
-            this.chkLocalFisico.Name = "chkLocalFisico";
-            this.chkLocalFisico.Size = new System.Drawing.Size(84, 17);
-            this.chkLocalFisico.TabIndex = 11;
-            this.chkLocalFisico.Text = "Local Físico";
-            this.chkLocalFisico.UseVisualStyleBackColor = true;
-            this.chkLocalFisico.CheckedChanged += new System.EventHandler(this.chkLocalFisico_CheckedChanged);
-            // 
             // frmCadastroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,8 +311,8 @@
             this.Controls.Add(this.gpbAtributo);
             this.Controls.Add(this.dgvAtributos);
             this.Controls.Add(this.tlsVendasPesquisa);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(674, 383);
             this.Name = "frmCadastroCategoria";
             this.Text = "Cadastro Categoria";
             this.tlsVendasPesquisa.ResumeLayout(false);

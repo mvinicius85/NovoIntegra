@@ -118,6 +118,9 @@
             // 
             this.dgvFiltro.AllowUserToResizeColumns = false;
             this.dgvFiltro.AllowUserToResizeRows = false;
+            this.dgvFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFiltro.BackgroundColor = System.Drawing.Color.White;
             this.dgvFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiltro.Location = new System.Drawing.Point(5, 84);
@@ -129,7 +132,8 @@
             // 
             // lblResultPesquisa
             // 
-            this.lblResultPesquisa.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblResultPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblResultPesquisa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblResultPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultPesquisa.ForeColor = System.Drawing.Color.White;
@@ -234,8 +238,8 @@
             this.Controls.Add(this.lblResultPesquisa);
             this.Controls.Add(this.dgvFiltro);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(708, 340);
             this.Name = "frmConsultaParametros";
             this.Text = "Consultar Parametros";
             this.groupBox1.ResumeLayout(false);

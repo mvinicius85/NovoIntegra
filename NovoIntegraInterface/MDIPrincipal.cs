@@ -2,6 +2,7 @@
 using NovoIntegraInterface.Arquivos;
 using NovoIntegraInterface.Documento;
 using NovoIntegraInterface.Log;
+using NovoIntegraInterface.Sobre;
 using NovoIntegraInterface.Suporte;
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,19 @@ namespace NovoIntegraInterface
         private void inserirCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Support.BuscaForm<frmAlteraMDBs>(); 
+            if (!form.Created)
+            {
+                form.MdiParent = this;
+                form.Show();
+                return;
+            }
+            form.BringToFront();
+            return;
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Support.BuscaForm<frmSobre>();
             if (!form.Created)
             {
                 form.MdiParent = this;

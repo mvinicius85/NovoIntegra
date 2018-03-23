@@ -13,12 +13,12 @@ namespace NovaIntegra.Application.ViewModel
 
         }
         public FiltroLogViewModel(DateTime _dtini, DateTime _dtfim, string _idcateg,
-            string _lote, bool _inderr, string _iddoc)
+            string _doc, bool _inderr, string _iddoc)
         {
             DtInicio = _dtini;
             DtFim = _dtfim;
             IDCategoria = _idcateg;
-            Lote = _lote;
+            Documento = _doc;
             inderro = _inderr;
             IdDocumento = _iddoc;
         }
@@ -28,5 +28,6 @@ namespace NovaIntegra.Application.ViewModel
         public string Lote { get; set; }
         public bool inderro { get; set; }
         public string IdDocumento { get; set; }
+        public string Documento { get; set; }
     }
 }

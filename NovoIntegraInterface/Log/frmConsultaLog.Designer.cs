@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtIdDocumento = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.txtLote = new System.Windows.Forms.TextBox();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.chkErro = new System.Windows.Forms.CheckBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
@@ -123,7 +123,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtIdDocumento);
             this.groupBox1.Controls.Add(this.btnPesquisar);
-            this.groupBox1.Controls.Add(this.txtLote);
+            this.groupBox1.Controls.Add(this.txtDocumento);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.chkErro);
             this.groupBox1.Controls.Add(this.cboCategoria);
@@ -135,7 +135,7 @@
             this.groupBox1.Size = new System.Drawing.Size(714, 95);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtro Log";
+            this.groupBox1.Text = "Filtro de registros";
             // 
             // label5
             // 
@@ -143,13 +143,13 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(180, 75);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.Size = new System.Drawing.Size(147, 13);
             this.label5.TabIndex = 74;
-            this.label5.Text = "Id do Documento:";
+            this.label5.Text = "Código identificador SE Suite:";
             // 
             // txtIdDocumento
             // 
-            this.txtIdDocumento.Location = new System.Drawing.Point(278, 72);
+            this.txtIdDocumento.Location = new System.Drawing.Point(333, 72);
             this.txtIdDocumento.Name = "txtIdDocumento";
             this.txtIdDocumento.Size = new System.Drawing.Size(217, 20);
             this.txtIdDocumento.TabIndex = 73;
@@ -168,28 +168,28 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // txtLote
+            // txtDocumento
             // 
-            this.txtLote.Location = new System.Drawing.Point(278, 46);
-            this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(268, 20);
-            this.txtLote.TabIndex = 5;
+            this.txtDocumento.Location = new System.Drawing.Point(333, 46);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(268, 20);
+            this.txtDocumento.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(241, 49);
+            this.label4.Location = new System.Drawing.Point(262, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Lote:";
+            this.label4.Text = "Documento:";
             // 
             // chkErro
             // 
             this.chkErro.AutoSize = true;
             this.chkErro.ForeColor = System.Drawing.Color.Black;
-            this.chkErro.Location = new System.Drawing.Point(501, 72);
+            this.chkErro.Location = new System.Drawing.Point(556, 72);
             this.chkErro.Name = "chkErro";
             this.chkErro.Size = new System.Drawing.Size(45, 17);
             this.chkErro.TabIndex = 3;
@@ -200,7 +200,7 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(278, 16);
+            this.cboCategoria.Location = new System.Drawing.Point(333, 16);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(268, 21);
             this.cboCategoria.TabIndex = 2;
@@ -209,7 +209,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(217, 19);
+            this.label3.Location = new System.Drawing.Point(272, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 1;
@@ -287,7 +287,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(749, 398);
             this.Name = "frmConsultaLog";
-            this.Text = "Consulta Log";
+            this.Text = "Auditoria";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).EndInit();
             this.tlsVendasPesquisa.ResumeLayout(false);
             this.tlsVendasPesquisa.PerformLayout();
@@ -309,7 +309,7 @@
         private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.TextBox txtLote;
+        private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkErro;
         private System.Windows.Forms.ComboBox cboCategoria;

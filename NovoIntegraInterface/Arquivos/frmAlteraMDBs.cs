@@ -26,7 +26,7 @@ namespace NovoIntegraInterface.Arquivos
         private void CarregaForm()
         {
             var categorias = _docappservice.ListarCategorias();
-            categorias.Add(new DCCategoryViewModel("", "<Selecione>"));
+            categorias.Add(new DCCategoryViewModel("", "<Selecione a categoria que deseja ajustar>"));
             cboCategoria.DataSource = categorias.OrderBy(x => x.IDCATEGORY).ToList();
             cboCategoria.ValueMember = "IDCATEGORY";
             cboCategoria.DisplayMember = "codenome";
@@ -55,6 +55,7 @@ namespace NovoIntegraInterface.Arquivos
             var msg = MessageBox.Show(this, "Os arquivos serão alterados, deseja prosseguir?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (msg.ToString() == "OK")
             {
+                Cursor = Cursors.WaitCursor;
                 var dirimp = new DirectoryInfo(txtDiretorio.Text);
                 var listfiles = dirimp.GetFiles("*.mdb", SearchOption.AllDirectories);
                 foreach (var item in listfiles.ToList())
@@ -72,7 +73,16 @@ namespace NovoIntegraInterface.Arquivos
                         arq.Add(item.Name);
                     }
                 }
-                MessageBox.Show(this,"Não foi possível alterar os seguintes arquivos: " + String.Join(", ",arq.ToList()),"",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                Cursor = Cursors.Default;
+                if (arq.Count.Equals(0))
+                {
+                    MessageBox.Show(this, listfiles.Count().ToString() + " arquivos foram alterados com sucesso." ,  "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(this, "Não foi possível alterar os seguintes arquivos: " + String.Join(", ", arq.ToList()), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
 
         }

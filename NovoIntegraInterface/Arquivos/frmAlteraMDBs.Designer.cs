@@ -43,19 +43,21 @@
             // 
             // txtDiretorio
             // 
-            this.txtDiretorio.Location = new System.Drawing.Point(71, 75);
+            this.txtDiretorio.Location = new System.Drawing.Point(140, 68);
             this.txtDiretorio.Name = "txtDiretorio";
             this.txtDiretorio.ReadOnly = true;
-            this.txtDiretorio.Size = new System.Drawing.Size(438, 20);
+            this.txtDiretorio.Size = new System.Drawing.Size(376, 20);
             this.txtDiretorio.TabIndex = 0;
             // 
             // btnSelecionaDir
             // 
-            this.btnSelecionaDir.Image = global::NovoIntegraInterface.Properties.Resources.icons8_open_50;
             this.btnSelecionaDir.Location = new System.Drawing.Point(12, 68);
             this.btnSelecionaDir.Name = "btnSelecionaDir";
-            this.btnSelecionaDir.Size = new System.Drawing.Size(49, 33);
+            this.btnSelecionaDir.Size = new System.Drawing.Size(122, 20);
             this.btnSelecionaDir.TabIndex = 1;
+            this.btnSelecionaDir.Text = "Selecione o caminho ";
+            this.btnSelecionaDir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSelecionaDir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSelecionaDir.UseVisualStyleBackColor = true;
             this.btnSelecionaDir.Click += new System.EventHandler(this.btnSelecionaDir_Click);
             // 
@@ -67,9 +69,9 @@
             this.btnGravar,
             this.lblToolBar});
             this.tlsVendasPesquisa.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.tlsVendasPesquisa.Location = new System.Drawing.Point(0, 116);
+            this.tlsVendasPesquisa.Location = new System.Drawing.Point(0, 100);
             this.tlsVendasPesquisa.Name = "tlsVendasPesquisa";
-            this.tlsVendasPesquisa.Size = new System.Drawing.Size(521, 31);
+            this.tlsVendasPesquisa.Size = new System.Drawing.Size(527, 31);
             this.tlsVendasPesquisa.TabIndex = 8;
             this.tlsVendasPesquisa.Text = "toolStrip1";
             // 
@@ -81,7 +83,7 @@
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(28, 28);
             this.btnGravar.Text = "toolStripButton4";
-            this.btnGravar.ToolTipText = "Inserir Categoria no Arquivos Indexados";
+            this.btnGravar.ToolTipText = "Clique aqui para iniciar o ajuste";
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // lblToolBar
@@ -112,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 147);
+            this.ClientSize = new System.Drawing.Size(527, 131);
             this.Controls.Add(this.gpbCategoria);
             this.Controls.Add(this.tlsVendasPesquisa);
             this.Controls.Add(this.btnSelecionaDir);
@@ -120,7 +122,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmAlteraMDBs";
-            this.Text = "Inserir Categoria";
+            this.Text = "Ajustes base de dados prodimage";
             this.tlsVendasPesquisa.ResumeLayout(false);
             this.tlsVendasPesquisa.PerformLayout();
             this.gpbCategoria.ResumeLayout(false);

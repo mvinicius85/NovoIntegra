@@ -14,6 +14,7 @@ namespace NovoIntegra.Documento.Domain.DTO
         public string Lote { get; set; }
         public bool inderro { get; set; }
         public string IdDocumento { get; set; }
+        public string Documento { get; set; }
 
         public string SWhere()
         {
@@ -31,16 +32,18 @@ namespace NovoIntegra.Documento.Domain.DTO
                 swhere.Append(" and Categoria = @IDCategoria ");
             }
 
-            if (!String.IsNullOrEmpty(Lote))
+            if (!String.IsNullOrEmpty(Documento))
             {
-                Lote = "%" + Lote + "%";
-                swhere.Append(" and Arquivo like @Lote ");
+                Documento = "%" + Documento + "%";
+                swhere.Append(" and Documento like @Documento ");
             }
 
             if (inderro)
             {
                 swhere.Append(" and IndErro = 1 ");
             }
+
+            
 
             return swhere.ToString();
         }

@@ -31,7 +31,7 @@ namespace NovoIntegraInterface.Log
             {
                 Cursor = Cursors.WaitCursor;
                 var filtro = new FiltroLogViewModel(dtpInicio.Value.Date, dtpFim.Value,
-                    cboCategoria.SelectedValue.ToString(),txtLote.Text, chkErro.Checked, txtIdDocumento.Text);
+                    cboCategoria.SelectedValue.ToString(),txtDocumento.Text, chkErro.Checked, txtIdDocumento.Text);
                 var log = _docappservice.BuscarLog(filtro);
                 dgvFiltro.DataSource = log.OrderBy(x => x.DtEvento).ToList();
 

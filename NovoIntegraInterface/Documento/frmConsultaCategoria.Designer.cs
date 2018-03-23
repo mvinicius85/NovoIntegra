@@ -180,7 +180,7 @@
             this.groupBox1.Size = new System.Drawing.Size(439, 79);
             this.groupBox1.TabIndex = 149;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados Categoria";
+            this.groupBox1.Text = "Consulta e criação";
             // 
             // btnPesquisar
             // 
@@ -241,7 +241,7 @@
             this.Controls.Add(this.tlsVendasPesquisa);
             this.MinimumSize = new System.Drawing.Size(469, 346);
             this.Name = "frmConsultaCategoria";
-            this.Text = "Consulta Categoria";
+            this.Text = "Configuração de categorias";
             this.tlsVendasPesquisa.ResumeLayout(false);
             this.tlsVendasPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltro)).EndInit();

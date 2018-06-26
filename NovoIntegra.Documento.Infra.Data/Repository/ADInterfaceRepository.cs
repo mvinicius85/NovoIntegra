@@ -21,7 +21,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         {
             var con = Db.Database.Connection;
 
-            var sql = "SELECT max(CDINTERFACE) CDINTERFACE FROM ADINTERFACE";
+            var sql = "SELECT isnull(max(CDINTERFACE),0) CDINTERFACE FROM ADINTERFACE";
 
             var max = con.Query<int>(sql).FirstOrDefault();
 

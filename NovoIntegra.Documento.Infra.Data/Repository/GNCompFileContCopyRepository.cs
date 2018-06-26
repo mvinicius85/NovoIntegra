@@ -32,7 +32,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         {
             var con = Db.Database.Connection;
 
-            var sql = "Select MAX(CDCOMPLEXFILECONT) AS CDCOMPLEXFILECONT from GNCOMPFILECONTCOPY";
+            var sql = "Select isnull(MAX(CDCOMPLEXFILECONT),0) AS CDCOMPLEXFILECONT from GNCOMPFILECONTCOPY";
 
             var max = con.Query<int>(sql).FirstOrDefault();
 

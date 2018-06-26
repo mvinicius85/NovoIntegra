@@ -32,7 +32,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         {
             var con = Db.Database.Connection;
 
-            var sql = "Select MAX(CDREVISION) AS CDREVISION from GNREVISION ";
+            var sql = "Select isnull(MAX(CDREVISION),0) AS CDREVISION from GNREVISION ";
 
             var max = con.Query<int>(sql).FirstOrDefault();
 

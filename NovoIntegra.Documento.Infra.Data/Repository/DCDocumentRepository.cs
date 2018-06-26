@@ -53,7 +53,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         {
             var con = Db.Database.Connection;
 
-            var sql = "Select MAX(CDDOCUMENT) AS cddocument from DCDOCUMENT";
+            var sql = "Select isnull(MAX(CDDOCUMENT),0) AS cddocument from DCDOCUMENT";
 
             var max = con.Query<int>(sql).FirstOrDefault();
 

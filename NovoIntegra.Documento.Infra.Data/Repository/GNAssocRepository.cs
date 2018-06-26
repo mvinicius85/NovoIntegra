@@ -32,7 +32,7 @@ namespace NovoIntegra.Documento.Infra.Data.Repository
         {
             var con = Db.Database.Connection;
 
-            var sql = "Select MAX(CDASSOC) AS CDASSOC from  GNASSOC";
+            var sql = "Select isnull(MAX(CDASSOC),0) AS CDASSOC from  GNASSOC";
 
             var max = con.Query<int>(sql).FirstOrDefault();
 
